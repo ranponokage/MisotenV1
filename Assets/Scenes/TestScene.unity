@@ -121,130 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &44448839
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 44448840}
-  m_Layer: 0
-  m_Name: GeneratorPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &44448840
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44448839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1072625011}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1072625010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1072625011}
-  - component: {fileID: 1072625012}
-  m_Layer: 0
-  m_Name: RoomGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1072625011
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072625010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1998405166}
-  - {fileID: 44448840}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1072625012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1072625010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c4a3d9a49e2584ba17e374cd3d444a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dungeonSettingSO: {fileID: 0}
-  _roomRoot: {fileID: 1998405166}
-  _roomPrefab: {fileID: 4787999951123064777, guid: 6bf04d48925a3cf489dfb4738eeee9de,
-    type: 3}
-  _roomNumber: 20
-  _wallType:
-    SingleLeft: {fileID: 4660392864016136417, guid: 8190050f5a5872c498762bbf3421132a,
-      type: 3}
-    SingleRight: {fileID: 6726789731135238992, guid: b6db3fc3997ab804581cb46f068d7f60,
-      type: 3}
-    SingleUp: {fileID: 7388142535341295798, guid: 6d461dc7a50a9804485ca0e3895b4cab,
-      type: 3}
-    SingleDown: {fileID: 8901162731504221180, guid: 57f04af37cf1e4d478cd2bb1348d476c,
-      type: 3}
-    DoubleLU: {fileID: 4138785583565043287, guid: 9c3312e400e9d1540b603abb9b32227f,
-      type: 3}
-    DoubleLR: {fileID: 5523193694514750296, guid: a197f2736268bdf41a77bccd8cf84c46,
-      type: 3}
-    DoubleLD: {fileID: 1790356532227604712, guid: 0b8b7d6cd12b688479f9eed0b8f80280,
-      type: 3}
-    DoubleUR: {fileID: 7959941512675000657, guid: a4e4dcc18aebe7048b054742caaccb95,
-      type: 3}
-    DoubleUD: {fileID: 356810724781691501, guid: f04624adbdf0e014eb74e358459d69de,
-      type: 3}
-    DoubleRD: {fileID: 4504440835987997850, guid: d25ff287a62715a4fa38e7359ba88aaa,
-      type: 3}
-    TripleLUR: {fileID: 8105176114779753352, guid: 98abdd9112b80154483c5e19aa284027,
-      type: 3}
-    TripleLUD: {fileID: 2849772887565862459, guid: 0c6b8011a5c1a444ba6ed5df8cf8fd62,
-      type: 3}
-    TripleURD: {fileID: 7934351711793040461, guid: e57b5458a8a5e5247b39b3867e7d1aa7,
-      type: 3}
-    TripleLRD: {fileID: 8047429896112882026, guid: 2a92d81f477afe04388f654361b5f49b,
-      type: 3}
-    Cross: {fileID: 1648673710719533332, guid: fdc44b98d3ed3d348a35f2c5262418d6, type: 3}
-  _generatorPoint: {fileID: 44448840}
-  _xOffset: 35
-  _yOffset: 35
-  _roomLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  _endPoint: {fileID: 1738614984312693224, guid: a0911f2a02e3d27449f28090ec887eff,
-    type: 3}
-  _items: []
-  _maxItem: 10
-  _itemStepToStart: 1
-  _itemStepToEnd: 2
-  SpawnPoint_P1: {fileID: 0}
-  SpawnPoint_P2: {fileID: 0}
 --- !u!1 &1089377470
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,36 +362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1998405165
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1998405166}
-  m_Layer: 0
-  m_Name: RoomRoot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1998405166
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998405165}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1072625011}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &593179174804718731
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -524,6 +370,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4876781901542022957}
   m_Mesh: {fileID: -466576837069412689, guid: 84af6cde4e043964c8c8f91b0e268aea, type: 3}
+--- !u!1001 &1705714475346153411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589808, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1705714474835589809, guid: f5236ffbf66571a4ab987dd8223165ba,
+        type: 3}
+      propertyPath: m_Name
+      value: RoomGenerator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f5236ffbf66571a4ab987dd8223165ba, type: 3}
 --- !u!108 &1888442031994082902
 Light:
   m_ObjectHideFlags: 0
