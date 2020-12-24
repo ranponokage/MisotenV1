@@ -16,10 +16,10 @@ TagManager:
   - Room
   - Door
   - MiniMap
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - P1Cam
+  - P2Cam
+  - Sun
   - 
   - 
   - 

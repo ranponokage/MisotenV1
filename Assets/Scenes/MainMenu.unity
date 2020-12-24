@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.84400296, g: 0.8739341, b: 0.93390584, a: 0.7860069}
+  m_FogColor: {r: 0.7437841, g: 0.7929443, b: 0.89144427, a: 0.7500914}
   m_FogMode: 2
   m_FogDensity: 0.00005
   m_LinearFogStart: 0
@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: b7186e882670a4a44abfa1a15155b96b, type: 2}
   m_HaloStrength: 0.5
@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 519955515}
   m_IndirectSpecularColor: {r: 0.33287328, g: 0.41315103, b: 0.5105084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -297,8 +297,8 @@ GameObject:
   m_Component:
   - component: {fileID: 519955516}
   - component: {fileID: 519955515}
-  m_Layer: 0
-  m_Name: Directional Light
+  m_Layer: 14
+  m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,8 +533,8 @@ MonoBehaviour:
   SunTagName: 
   EnableDeepwaterLighting: 1
   DefaultWaterSurfacePosition: 100
-  DirectionalLightingFadeRange: 100
-  FogLightingFadeRange: 100
+  DirectionalLightingFadeRange: 1000
+  FogLightingFadeRange: 1000
   EnableAdvancedDeferredFog: 0
   FogDepthShift: 1
   FogEdgeBlending: 0.125
