@@ -338,6 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioFileObjects: []
   audioFileMusicObjects:
+  - {fileID: 11400000, guid: 2f390cd26399ae346b1fb1c230361c5a, type: 2}
   - {fileID: 11400000, guid: 12a835e99e50e134bbc381d701e3c864, type: 2}
   - {fileID: 11400000, guid: 6e1c5e7be61bec140aa030214facec05, type: 2}
   sceneSoundEnumName: JSAM.Sounds
