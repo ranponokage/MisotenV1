@@ -1,41 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T _instance = null;
+    private static readonly Lazy<T> LazyInstance = new Lazy<T>(CreateSingleton);
 
-    public static T Instance
+    public static T Instance => LazyInstance.Value;
+
+    private static T CreateSingleton()
     {
-        get
-        {
-            if(_instance == null)
-            {
-                _instance = GameObject.FindObjectOfType<T>();
-                if(_instance == null)
-                {
-                    var singletonObj = new GameObject();
-                    singletonObj.name = typeof(T).ToString();
-                    _instance = singletonObj.AddComponent<T>();
-                }
-            }
-            return _instance;
-        }
-    }
-
-    public virtual void Awake()
-    {
-        if(_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = GetComponent<T>();
-
-        //This GameObject will persist across multiple scenes
-        DontDestroyOnLoad(gameObject);
-
-        if (_instance == null)
-            return;
+        var ownerObject = new GameObject($"{typeof(T).Name} (singleton)");
+        var instance = ownerObject.AddComponent<T>();
+        DontDestroyOnLoad(ownerObject);
+        return instance;
     }
 }
