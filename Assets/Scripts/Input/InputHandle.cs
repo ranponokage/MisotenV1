@@ -4,7 +4,7 @@ using System;
 using UnityEngine.InputSystem;
 using System.Linq;
 
-public class InputHandle: MonoBehaviour, GameInput.IGameplayActions, GameInput.IDialoguesActions
+public class InputHandle: MonoBehaviour
 {
     private PlayerInput _playerInput;
     private Player _player;
@@ -40,74 +40,77 @@ public class InputHandle: MonoBehaviour, GameInput.IGameplayActions, GameInput.I
         _player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
     }
 
-    public void OnAccelerate(InputAction.CallbackContext context)
-    {
- 
-        //if (context.phase == InputActionPhase.Performed)
-
-        //if (context.phase == InputActionPhase.Canceled)
-  
-    }
-
-    public void OnAdvanceDIalogue(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnExtraAction(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnInteract(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnMinimapToggle(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnMinimapZoomIn(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnMinimapZoomOut(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void OnMouseControlCamera(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (_player == null)
-            return;
-        _player.SetRawInput(context.ReadValue<Vector2>());
+
+        Debug.Log(context.ReadValue<Vector2>());
+        //if (_player == null)
+        //    return;
+        //_player.SetRawInput(context.ReadValue<Vector2>());
     }
 
-    public void OnMoveSelection(InputAction.CallbackContext context)
+    public void OnAccelerate(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        //if (context.phase == InputActionPhase.Performed)
+        //    _player.IsAccelerated = true;
+        //if (context.phase == InputActionPhase.Canceled)
+        //    _player.IsAccelerated = false;
+
+        Debug.Log("_player.IsAccelerated = true;");
     }
 
-    public void OnPause(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void OnAdvanceDIalogue(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 
-    public void OnRotateCamera(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
+    //public void OnAttack(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnExtraAction(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnInteract(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnMinimapToggle(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnMinimapZoomIn(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnMinimapZoomOut(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnMouseControlCamera(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnMoveSelection(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnPause(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
+
+    //public void OnRotateCamera(InputAction.CallbackContext context)
+    //{
+    //    throw new System.NotImplementedException();
+    //}
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     private Vector2 _rawInput;
     private CharacterController _characterController;
+
+    public bool IsAccelerated;
 
     // Start is called before the first frame update
     void Awake()
