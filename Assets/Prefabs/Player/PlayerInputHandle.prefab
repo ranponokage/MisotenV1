@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5070243122417968616
+--- !u!1 &1676192975833169076
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5070243122417968617}
-  - component: {fileID: 5070243122417968622}
-  - component: {fileID: 5070243122417968623}
+  - component: {fileID: 1676192975833169077}
+  - component: {fileID: 1676192975833169079}
+  - component: {fileID: 1676192975833169078}
   m_Layer: 0
   m_Name: PlayerInputHandle
   m_TagString: Untagged
@@ -18,33 +18,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5070243122417968617
+--- !u!4 &1676192975833169077
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070243122417968616}
+  m_GameObject: {fileID: 1676192975833169076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.00000020647661, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5070243122417968622
+--- !u!114 &1676192975833169079
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070243122417968616}
+  m_GameObject: {fileID: 1676192975833169076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67a3cc2e2f8c7e44a4c13655bed9916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1676192975833169078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676192975833169076}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: b2c4e9aa7a973ec4ba7e8260afd95137,
+  m_Actions: {fileID: -944628639613478452, guid: 65b9f55b3cb5da64386f848ed5650691,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -60,7 +72,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5070243122417968623}
+      - m_Target: {fileID: 1676192975833169079}
         m_MethodName: OnMove
         m_Mode: 0
         m_Arguments:
@@ -71,110 +83,197 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 8f8a7827-ed3e-487e-a4b3-7b03e42ab105
-    m_ActionName: Gameplay/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionId: 20c3c8d5-e0c7-4e25-b4eb-f3c5122933c0
+    m_ActionName: Gameplay/Move[/XInputControllerWindows/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnAccelerate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0a98188e-7bca-4a60-b7c0-25e98070faa3
+    m_ActionName: Gameplay/Accelerate[/Keyboard/shift,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 418e50d0-921c-487c-ad74-34215ff94cb9
+    m_ActionName: Gameplay/Attack[/Keyboard/f,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnInteract
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 032405f0-3145-460e-bd9c-b2c64996feb8
+    m_ActionName: Gameplay/Interact[/Keyboard/e,/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: b589e3e2-9a85-4be1-91a8-619c17f7bbeb
-    m_ActionName: Gameplay/Accelerate[/Keyboard/shift]
+    m_ActionId: 98071d10-b926-42d2-b473-3552a9f48007
+    m_ActionName: Gameplay/Pause[/Keyboard/escape,/XInputControllerWindows/start]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e3f48f75-de65-443d-8347-3ed588f23a30
-    m_ActionName: Gameplay/Attack[/Keyboard/f]
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnExtraAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 98092911-8355-4220-871b-ba531d1a4f0d
+    m_ActionName: Gameplay/ExtraAction[/Keyboard/r,/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f4a47a39-8432-41cd-8cc5-e960c4105b77
-    m_ActionName: Gameplay/Interact[/Keyboard/e]
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnRotateCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3ae8accf-8ac7-416d-8a6d-d0eb0f110da7
+    m_ActionName: Gameplay/RotateCamera[/XInputControllerWindows/rightStick,/Mouse/delta]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a5028204-ea7b-4677-8644-98f2b097933f
-    m_ActionName: Gameplay/Pause[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 45438b73-03bf-4e95-821e-b34d0f709704
-    m_ActionName: Gameplay/ExtraAction[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f73fbebb-5263-4be5-9b28-f17fb369c6af
-    m_ActionName: Gameplay/RotateCamera[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ce41b3f6-0445-4395-8f91-06f93fb8c9e7
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnMouseControlCamera
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f11a74ab-9f6a-4ed0-990f-5c4bb2683116
     m_ActionName: Gameplay/MouseControlCamera[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: dd8b21de-c207-4dc0-a4be-26cfb11c655d
-    m_ActionName: Gameplay/MinimapToggle[/Keyboard/tab]
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnMinimapToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eb46b1f6-2029-482e-a293-016dd8aa9210
+    m_ActionName: Gameplay/MinimapToggle[/Keyboard/tab,/XInputControllerWindows/select]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnMinimapZoomIn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dfc56de3-27d6-4e8d-8f83-673afbf3a58b
+    m_ActionName: Gameplay/MinimapZoomIn[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1676192975833169079}
+        m_MethodName: OnMinimapZoomOut
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0d6cc520-7af6-49c1-8035-ae61fbcc4040
+    m_ActionName: Gameplay/MinimapZoomOut[/XInputControllerWindows/rightTrigger]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: d752edad-1964-4421-afba-b7520062aa2c
-    m_ActionName: Gameplay/MinimapZoomIn
+    m_ActionId: 1698e155-e4e9-49e4-9d5d-4a0ef745d92c
+    m_ActionName: UI/Navigate[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/rightStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/rightStick/right,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: ce61b59a-1607-45f6-9f44-58c07728798f
-    m_ActionName: Gameplay/MinimapZoomOut
+    m_ActionId: d22e028d-a62c-4ef4-b712-a501a2324b3c
+    m_ActionName: UI/Submit[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 76e465be-04a7-4367-ad15-d91db0490e37
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+    m_ActionId: b76ad3cf-ce0e-4fca-91f6-a145f30368f6
+    m_ActionName: UI/Cancel[/Keyboard/escape,/XInputControllerWindows/buttonEast]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6c12fc52-d2b5-45cc-a7be-3f4c94cb88ae
-    m_ActionName: UI/Submit[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2edffe87-ca4c-4126-8c0b-406c45080a4d
-    m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ae400058-1cef-472a-b8e4-228200eda0a8
+    m_ActionId: 6cd88a68-4d80-436b-b8bd-e6b1971d373a
     m_ActionName: UI/Point[/Mouse/position]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: a4aa89cf-93d9-4ac0-bff8-d66b16b38b4e
+    m_ActionId: c7ede5c1-aaa1-4657-9c5a-7c801921b919
     m_ActionName: UI/Click[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 592f1af3-e66f-4cbd-acef-338811e0948d
+    m_ActionId: 12b39208-c548-4f05-9bf4-250471669f86
     m_ActionName: UI/ScrollWheel[/Mouse/scroll]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 62fb79dc-f0be-4e6f-9eb3-89473608f578
+    m_ActionId: d0d7bd10-1ae7-47cb-9138-16441034ff17
     m_ActionName: UI/MiddleClick[/Mouse/middleButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: bbd7f832-ccda-420c-b404-f33a1b2f2e7e
+    m_ActionId: ed41bfb4-c311-4258-8b2f-697ecf5b32a2
     m_ActionName: UI/RightClick[/Mouse/rightButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 26aa4552-be8a-42f6-b525-08256c95153d
+    m_ActionId: 63776f5d-5fe6-4033-95bc-d326944e6e3a
     m_ActionName: UI/TrackedDevicePosition
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 576a492e-4581-4787-b472-4f8220ba42cf
+    m_ActionId: 201b60dd-16da-4a1e-b863-7a0985c0a75d
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0502fb9d-df6c-46bf-b81c-df4c2f691726
-    m_ActionName: Dialogues/MoveSelection[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
+    m_ActionId: 5bc51fff-3dd0-4b03-9155-5706dd6ae2cd
+    m_ActionName: Dialogues/MoveSelection[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick,/XInputControllerWindows/leftStick/right,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 3500f592-9e8f-4f04-b82a-4d85a89c452c
-    m_ActionName: Dialogues/AdvanceDIalogue[/Keyboard/space]
+    m_ActionId: 433c0ffa-1b4f-4949-850a-67211ba72f1b
+    m_ActionName: Dialogues/AdvanceDIalogue[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: GamePad
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5070243122417968623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5070243122417968616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e67a3cc2e2f8c7e44a4c13655bed9916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

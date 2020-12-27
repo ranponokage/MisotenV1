@@ -3,11 +3,13 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 using UGUIMiniMap;
+using System;
 
 public class bl_MiniMap : MonoBehaviour
 {
     [Separator("General Settings")]
     // Target for the minimap.
+    public int PlayerIndex = 0;
     public GameObject m_Target;
     public string LevelName;
     [LayerMask]
@@ -37,6 +39,9 @@ public class bl_MiniMap : MonoBehaviour
     public KeyCode IncreaseHeightKey = KeyCode.KeypadPlus;
     //If you can that the player cant Increase or decrease, just put keys as "None".
     public KeyCode DecreaseHeightKey = KeyCode.KeypadMinus;
+
+ 
+
     [Range(1, 15)]
     [Tooltip("Smooth speed to height change.")]
     public float LerpHeight = 8;
@@ -181,6 +186,28 @@ public class bl_MiniMap : MonoBehaviour
         if (RootAlpha != null) { StartCoroutine(StartFade(0)); }
     }
 
+    public int GetPlayerIndex()
+    {
+        return PlayerIndex;
+    }
+
+    public void OnMapZoomOut()
+    {
+        ChangeHeight(false);
+    }
+
+    public void OnMapZoomIn()
+    {
+
+        ChangeHeight(true);
+    }
+
+    public void OnMapToggle()
+    {
+
+        ToggleSize();
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -287,7 +314,10 @@ public class bl_MiniMap : MonoBehaviour
         isUpdateFrame = (Time.frameCount % UpdateRate) == 0;
 
         //Controlled inputs key for minimap
-        if (!isMobile) { Inputs(); }
+        if (!isMobile) 
+        { 
+            //Inputs(); 
+        }
         //controlled that minimap follow the target
         PositionControll();
         //Apply rotation settings
@@ -443,22 +473,22 @@ public class bl_MiniMap : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    void Inputs()
-    {
-        // If the minimap button is pressed then toggle the map state.
-        if (Input.GetKeyDown(ToogleKey))
-        {
-            ToggleSize();
-        }
-        if (Input.GetKeyDown(DecreaseHeightKey) && DefaultHeight < MaxZoom)
-        {
-            ChangeHeight(true);
-        }
-        if (Input.GetKeyDown(IncreaseHeightKey) && DefaultHeight > MinZoom)
-        {
-            ChangeHeight(false);
-        }
-    }
+    //void Inputs()
+    //{
+    //    // If the minimap button is pressed then toggle the map state.
+    //    if (Input.GetKeyDown(ToogleKey))
+    //    {
+    //        ToggleSize();
+    //    }
+    //    if (Input.GetKeyDown(DecreaseHeightKey) && DefaultHeight < MaxZoom)
+    //    {
+    //        ChangeHeight(true);
+    //    }
+    //    if (Input.GetKeyDown(IncreaseHeightKey) && DefaultHeight > MinZoom)
+    //    {
+    //        ChangeHeight(false);
+    //    }
+    //}
 
     /// <summary>
     /// Map FullScreen or MiniMap

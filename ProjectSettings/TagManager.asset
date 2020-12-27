@@ -19,8 +19,8 @@ TagManager:
   - Player
   - P1Cam
   - P2Cam
-  - Sun
-  - 
+  - Postprocessing
+  - PlayerCamera
   - 
   - 
   - 

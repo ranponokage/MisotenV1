@@ -78,6 +78,7 @@ public class bl_MiniMapEditor : Editor
         if (GUILayout.Button("General Settings", EditorStyles.toolbarPopup)) { ShowGeneral = !ShowGeneral; GeneralAnim.target = ShowGeneral; }
         if (EditorGUILayout.BeginFadeGroup(GeneralAnim.faded))
         {
+            script.PlayerIndex = EditorGUILayout.IntField("playerIndex", script.PlayerIndex);
             script.m_Target = EditorGUILayout.ObjectField("Target", script.m_Target, typeof(GameObject), allowSceneObjects) as GameObject;
             script.LevelName = EditorGUILayout.TextField("Level Name", script.LevelName);
             script.MiniMapLayer = EditorGUILayout.LayerField("MiniMap Layer", script.MiniMapLayer);
