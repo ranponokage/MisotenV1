@@ -52,9 +52,11 @@ MonoBehaviour:
   Sam: 100
   Mass: 1
   TurnSmoothTime: 0.06
-  GameplayCamera: {fileID: 0}
-  SpeedFactor: 100
-  IsAcceleratedPressed: 0
+  minSpeed: 0.5
+  maxSpeed: 5
+  AccelerateFactor: 0
+  GameplayCameraTransform: {fileID: 0}
+  accelerateFOV: 100
   IsAttackedPressed: 0
   IsExtraActionPressed: 0
   IsInteractionPressed: 0

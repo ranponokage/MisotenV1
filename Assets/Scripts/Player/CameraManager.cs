@@ -7,7 +7,6 @@ public class CameraManager : MonoBehaviour
 {
     public int PlayerIndex;
     public Camera PlayerCamera;
-
     public CinemachineFreeLook FreeLookVCam;
     private bool _isRMBPressed;
 

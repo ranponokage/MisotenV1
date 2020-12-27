@@ -103,8 +103,9 @@ public class SpawnSystem : Singleton<SpawnSystem>
     }
     private void SetupMainCameras(Player playerInstance, CameraManager cameraManager)
     {
-        playerInstance.GameplayCamera = cameraManager.PlayerCamera.transform;
+        playerInstance.GameplayCamera = cameraManager.PlayerCamera;
         cameraManager.SetupPlayerVirtualCamera(playerInstance.transform);
+        playerInstance.FreeLookVCam = cameraManager.FreeLookVCam;
     }
     private void SetupMinimap(Player playerInstance, int playerIndex)
     {

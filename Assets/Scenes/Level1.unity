@@ -657,7 +657,7 @@ MonoBehaviour:
   m_CollideAgainst:
     serializedVersion: 2
     m_Bits: 1
-  m_IgnoreTag: Player
+  m_IgnoreTag: P2Camera
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1399645525}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_CollideAgainst:
     serializedVersion: 2
     m_Bits: 1
-  m_IgnoreTag: Player
+  m_IgnoreTag: MainCamera
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1351,7 +1351,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737348199}
-  m_LocalRotation: {x: 0.23453641, y: -0.0000000074129245, z: 0.000000001788486, w: 0.97210735}
+  m_LocalRotation: {x: 0.23453635, y: -0.000000016746664, z: 0.0000000040403982, w: 0.97210735}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1602,30 +1602,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 103635881, guid: 3433acbbab3632545845a33b66bbb1e1, type: 3}
-      propertyPath: m_Height
-      value: 4.5066624
-      objectReference: {fileID: 0}
-    - target: {fileID: 103635881, guid: 3433acbbab3632545845a33b66bbb1e1, type: 3}
-      propertyPath: m_Radius
-      value: 0.46207213
-      objectReference: {fileID: 0}
-    - target: {fileID: 103635881, guid: 3433acbbab3632545845a33b66bbb1e1, type: 3}
-      propertyPath: m_Center.y
-      value: 0.9721253
-      objectReference: {fileID: 0}
-    - target: {fileID: 103635881, guid: 3433acbbab3632545845a33b66bbb1e1, type: 3}
-      propertyPath: m_Center.z
-      value: -0.26680326
-      objectReference: {fileID: 0}
-    - target: {fileID: 103635881, guid: 3433acbbab3632545845a33b66bbb1e1, type: 3}
-      propertyPath: m_Direction
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 103635882, guid: 3433acbbab3632545845a33b66bbb1e1, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 5584075304437438228, guid: 3433acbbab3632545845a33b66bbb1e1,
         type: 3}
       propertyPath: m_Name
@@ -1854,7 +1830,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1875,7 +1851,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551644269}
-  m_LocalRotation: {x: 0.1990698, y: 0.000000009757362, z: -0.0000000019820667, w: 0.97998536}
+  m_LocalRotation: {x: 0.17830262, y: -0.000000006073358, z: 0.0000000011005308, w: 0.9839757}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1907,7 +1883,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580832964}
-  m_LocalRotation: {x: 0.21681468, y: -0.002631915, z: 0.0005845447, w: 0.97620904}
+  m_LocalRotation: {x: 0.20640965, y: -0.0041843224, z: 0.00088270113, w: 0.9784563}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1943,7 +1919,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -2013,6 +1989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1601519906}
     m_Modifications:
+    - target: {fileID: 3886526348438398405, guid: 2925a5594af5fb6498642574e488bdf1,
+        type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398407, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_Name
@@ -2031,32 +2012,32 @@ PrefabInstance:
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.858296
+      value: 5.9526696
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6510797
+      value: -4.787045
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9741994
+      value: 0.9753855
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22568507
+      value: 0.22049634
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.001313254
+      value: -0.0020856021
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00030423116
+      value: 0.00047147277
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
@@ -2834,7 +2815,7 @@ MonoBehaviour:
   m_VerticalDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_DeadZoneWidth: 0
+  m_DeadZoneWidth: 0.001041667
   m_DeadZoneHeight: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
@@ -2960,7 +2941,7 @@ GameObject:
   - component: {fileID: 2006531438}
   m_Layer: 15
   m_Name: Main Camera_P2
-  m_TagString: PlayerCamera
+  m_TagString: P2Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

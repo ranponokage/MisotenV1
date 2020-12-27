@@ -62,9 +62,9 @@ public class PlayerInputHandle: MonoBehaviour
         if (_player == null)
             return;
         if (context.phase == InputActionPhase.Performed)
-            _player.IsAcceleratedPressed = true;
+            _player.Accelerate();
         if (context.phase == InputActionPhase.Canceled)
-            _player.IsAcceleratedPressed = false;
+            _player.DeAccelerate();
     }
 
 

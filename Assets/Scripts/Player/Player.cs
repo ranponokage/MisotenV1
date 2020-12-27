@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,50 +7,46 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    #region PUBLIC FIELDS
+
     [SerializeField] public int PlayerIndex = 0;
     [SerializeField] public float Statmina = 100; // Accelerator
     [SerializeField] public float Hunger = 100;
     [SerializeField] public float Sam = 100;
     [SerializeField] public float Mass = 1;
     [SerializeField] public float TurnSmoothTime = 0.1f;
-    private float _turnSmoothVelocity;
-    private const float ROTATION_TRESHOLD = .02f; // Used to prevent NaN result causing rotation in a non direction
+
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private float maxSpeed = 5f;
-
-    [SerializeField] public Transform GameplayCamera;
-    #endregion
-
-    [SerializeField] public float SpeedControlFactor = 6f;
+    [SerializeField] public float AccelerateFactor = 0;
+    [SerializeField] private float accelerateFOV = 100f;                       // the FOV to use on the camera when player is Accelerate.
 
     private Vector2 _rawInput;
-    private Vector2 _movementInput;
-    private Vector3 _finalMoveVector; //final movement Vector
 
-
-    [HideInInspector] public bool IsAcceleratedPressed;
+    [HideInInspector] public Camera GameplayCamera;
+    [HideInInspector] public CinemachineFreeLook FreeLookVCam;
     [HideInInspector] public bool IsAttackedPressed;
     [HideInInspector] public bool IsExtraActionPressed;
     [HideInInspector] public bool IsInteractionPressed;
 
-    private CapsuleCollider _capsuleCollider;
     private Rigidbody _rigidBody;
     private Vector3 lastDirection;
-
-
+    private float _defaultFOV;
+    private float _targetFOV;
+    private float _itemSpeedFactor = 0f;
 
 
     // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
-        _capsuleCollider  = GetComponent<CapsuleCollider>();
         _rigidBody = GetComponent<Rigidbody>();
+        _defaultFOV = FreeLookVCam.m_Lens.FieldOfView;
+        _targetFOV = _defaultFOV;
     }
 
     // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
+        FreeLookVCam.m_Lens.FieldOfView = Mathf.Lerp(FreeLookVCam.m_Lens.FieldOfView, _targetFOV, Time.deltaTime);
         UpdateMoveMent();
     }
 
@@ -63,7 +60,7 @@ public class Player : MonoBehaviour
     private Vector3 Rotating()
     {
         //Get the two axes from the camera and flatten them on the XZ plane
-        Vector3 cameraForward = GameplayCamera.TransformDirection(Vector3.forward);
+        Vector3 cameraForward = GameplayCamera.transform.TransformDirection(Vector3.forward);
         // Camera forward Y component is relevant when flying.
         cameraForward = cameraForward.normalized;
 
@@ -114,9 +111,23 @@ public class Player : MonoBehaviour
         }
         else
         {
-            var finalSpeed = (Hunger * 0.01f) + (SpeedControlFactor * 0.1f);
+            var finalSpeed = (Hunger * 0.01f) + (AccelerateFactor * 0.1f) + (_itemSpeedFactor * 0.1f);
             return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
         }
+    }
+
+    public void Accelerate()
+    {
+        Debug.Log("Accelerate");
+        _targetFOV = accelerateFOV;
+        AccelerateFactor = 10;
+    }
+
+    public void DeAccelerate()
+    {
+        Debug.Log("DeAccelerate");
+        _targetFOV = _defaultFOV;
+        AccelerateFactor = 0;
     }
 
 }
