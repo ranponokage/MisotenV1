@@ -88,7 +88,8 @@ MonoBehaviour:
     m_Bits: 256
   _endPoint: {fileID: 1738614984312693224, guid: a0911f2a02e3d27449f28090ec887eff,
     type: 3}
-  _items: []
+  _items:
+  - {fileID: 1738614984312693224, guid: a0911f2a02e3d27449f28090ec887eff, type: 3}
   _maxItem: 10
   _itemStepToStart: 1
   _itemStepToEnd: 2

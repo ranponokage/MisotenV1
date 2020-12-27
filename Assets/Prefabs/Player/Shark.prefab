@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5584075304437438231}
-  - component: {fileID: 5584075304437438230}
   - component: {fileID: 5584075304437438225}
+  - component: {fileID: 103635882}
+  - component: {fileID: 103635881}
   m_Layer: 11
   m_Name: Shark
   m_TagString: Player
@@ -33,24 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &5584075304437438230
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584075304437438228}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5584075304437438225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,13 +51,43 @@ MonoBehaviour:
   Hunger: 100
   Sam: 100
   Mass: 1
-  TurnSmoothing: 1
+  TurnSmoothTime: 0.06
   GameplayCamera: {fileID: 0}
   SpeedFactor: 100
   IsAcceleratedPressed: 0
   IsAttackedPressed: 0
   IsExtraActionPressed: 0
   IsInteractionPressed: 0
+--- !u!54 &103635882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584075304437438228}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &103635881
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5584075304437438228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.46207213
+  m_Height: 4.5066624
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.9721253, z: -0.26680326}
 --- !u!1001 &5584075303987203824
 PrefabInstance:
   m_ObjectHideFlags: 0

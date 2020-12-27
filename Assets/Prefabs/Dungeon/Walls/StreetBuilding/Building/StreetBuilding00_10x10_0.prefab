@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7506919687189937049}
   - component: {fileID: 3092465416115850025}
   - component: {fileID: 5229749955690052632}
+  - component: {fileID: 8811093805778307362}
   m_Layer: 0
   m_Name: MeshBaker (1)-mesh-mesh
   m_TagString: Untagged
@@ -160,6 +161,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8811093805778307362
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473897066795893116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 08643183eecaa094e81011a5c92ee23b, type: 2}
 --- !u!1 &3938772265628887286
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,74 +15,93 @@ public class Player : MonoBehaviour
     [SerializeField] public float TurnSmoothTime = 0.1f;
     private float _turnSmoothVelocity;
     private const float ROTATION_TRESHOLD = .02f; // Used to prevent NaN result causing rotation in a non direction
+    [SerializeField] private float minSpeed = 0.5f;
+    [SerializeField] private float maxSpeed = 5f;
 
     [SerializeField] public Transform GameplayCamera;
     #endregion
 
-    [SerializeField] public float SpeedFactor = 6f;
+    [SerializeField] public float SpeedControlFactor = 6f;
 
     private Vector2 _rawInput;
     private Vector2 _movementInput;
-    private Vector3 _movementVector; //final movement Vector
-    private CharacterController _characterController;
+    private Vector3 _finalMoveVector; //final movement Vector
+
 
     [HideInInspector] public bool IsAcceleratedPressed;
     [HideInInspector] public bool IsAttackedPressed;
     [HideInInspector] public bool IsExtraActionPressed;
     [HideInInspector] public bool IsInteractionPressed;
 
+    private CapsuleCollider _capsuleCollider;
+    private Rigidbody _rigidBody;
+    private Vector3 lastDirection;
+
+
+
 
     // Start is called before the first frame update
     void Awake()
     {
-        _characterController = GetComponent<CharacterController>();
+        _capsuleCollider  = GetComponent<CapsuleCollider>();
+        _rigidBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float speed = CalculateFinalSpeed();
-
-        RecalculateMovement();
-
-        _movementVector = _movementInput * speed;
-
-        CalculateRotation();
-
-        _characterController.Move(_movementVector * Time.deltaTime);
+        UpdateMoveMent();
     }
 
-    private void CalculateRotation()
+    private void UpdateMoveMent()
     {
-        if (_movementVector.sqrMagnitude >= ROTATION_TRESHOLD)
-        {
-            float targetRotation = Mathf.Atan2(_movementVector.x, _movementVector.z) * Mathf.Rad2Deg;
-            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(
-                transform.eulerAngles.y,
-                targetRotation,
-                ref _turnSmoothVelocity,
-                TurnSmoothTime);
-        }
+        float speed = CalculateFinalSpeed();
+        Vector3 direction = Rotating();
+        _rigidBody.AddForce(direction * speed * Time.deltaTime * 100, ForceMode.Acceleration);
     }
 
-    private void RecalculateMovement()
+    private Vector3 Rotating()
     {
         //Get the two axes from the camera and flatten them on the XZ plane
-        Vector3 cameraForward = GameplayCamera.forward;
-        Vector3 cameraRight = GameplayCamera.right;
+        Vector3 cameraForward = GameplayCamera.TransformDirection(Vector3.forward);
+        // Camera forward Y component is relevant when flying.
+        cameraForward = cameraForward.normalized;
+
+        Vector3 cameraRight = new Vector3(cameraForward.z, 0, -cameraForward.x);
         //Use the two axes, modulated by the corresponding inputs, and construct the final vector
-        Vector3 adjustedMovement = cameraRight.normalized * _rawInput.x +
+        // Calculate target direction based on camera forward and direction key.
+        Vector3 targetDirection = cameraRight.normalized * _rawInput.x +
             cameraForward.normalized * _rawInput.y;
 
-        _movementInput = Vector3.ClampMagnitude(adjustedMovement, 1f);
-    }
+        // Rotate the player to the correct fly position.
+        if (targetDirection != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
+            Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime);
+
+            _rigidBody.MoveRotation(newRotation);
+            lastDirection = targetDirection;
+        }
+
+        // Player is flying and idle?
+        if (!(Mathf.Abs(_rawInput.x) > 0.2 || Mathf.Abs(_rawInput.y) > 0.2))
+        {
+            if (lastDirection != Vector3.zero)
+            {
+                lastDirection.y = 0;
+                Quaternion targetRotation = Quaternion.LookRotation(lastDirection);
+                Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime);
+                _rigidBody.MoveRotation(newRotation);
+            }
+        }
+        // Return the current fly direction.
+        return targetDirection;
+    }
     public void  SetRawInput(Vector2 rawInput)
     {
         _rawInput = rawInput;
-        Debug.Log(_rawInput);
     }
-
     public int GetPlayerIndex()
     {
         return PlayerIndex;
@@ -91,11 +110,12 @@ public class Player : MonoBehaviour
     {
         if (Hunger <= 0)
         {
-            return 0;
+            return minSpeed;
         }
         else
         {
-            return (Hunger * 0.01f) + (SpeedFactor * 0.1f);
+            var finalSpeed = (Hunger * 0.01f) + (SpeedControlFactor * 0.1f);
+            return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
         }
     }
 
