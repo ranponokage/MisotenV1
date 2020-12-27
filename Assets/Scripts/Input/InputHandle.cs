@@ -2,11 +2,14 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 public class InputHandle: MonoBehaviour, GameInput.IGameplayActions, GameInput.IDialoguesActions
 {
-    private PlayerInput playerInput;
+    private PlayerInput _playerInput;
+    private Player _player;
 
+    /*
     // Gameplay
     public event UnityAction accelerateEvent;
     public event UnityAction accelerateCanceledEvent;
@@ -26,12 +29,15 @@ public class InputHandle: MonoBehaviour, GameInput.IGameplayActions, GameInput.I
     // Dialogue
     public event UnityAction advanceDialogueEvent = delegate { };
     public event UnityAction onMoveSelectionEvent = delegate { };
+    */
 
 
     private void Awake()
     {
-        playerInput = GetComponent<PlayerInput>();
-        var index = playerInput.playerIndex;
+        _playerInput = GetComponent<PlayerInput>();
+        var index = _playerInput.playerIndex;
+        var players = FindObjectsOfType<Player>();
+        _player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
     }
 
     public void OnAccelerate(InputAction.CallbackContext context)
@@ -85,7 +91,9 @@ public class InputHandle: MonoBehaviour, GameInput.IGameplayActions, GameInput.I
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (_player == null)
+            return;
+        _player.SetRawInput(context.ReadValue<Vector2>());
     }
 
     public void OnMoveSelection(InputAction.CallbackContext context)
