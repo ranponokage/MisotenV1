@@ -366,7 +366,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""id"": ""c8da09ce-bf50-4eee-a2f4-989c832d3afe"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2(x=20,y=20)"",
                     ""groups"": ""Gamepad;GamePad"",
                     ""action"": ""RotateCamera"",
                     ""isComposite"": false,

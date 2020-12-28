@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] public float Mass = 1;
     [SerializeField] public float TurnSmoothTime = 0.1f;
 
+    [SerializeField] private float defaultSpeed = 5f;
     [SerializeField] private float minSpeed = 0.5f;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] public float AccelerateFactor = 0;
@@ -22,26 +23,29 @@ public class Player : MonoBehaviour
 
     private Vector2 _rawInput;
 
-    [HideInInspector] public Camera GameplayCamera;
-    [HideInInspector] public CinemachineFreeLook FreeLookVCam;
-    [HideInInspector] public bool IsAttackedPressed;
-    [HideInInspector] public bool IsExtraActionPressed;
-    [HideInInspector] public bool IsInteractionPressed;
 
     private Rigidbody _rigidBody;
+    private Animator _animator;
     private Vector3 lastDirection;
     private float _defaultFOV;
     private float _targetFOV;
     private float _itemSpeedFactor = 0f;
 
+    [HideInInspector] public Camera GameplayCamera;
+    [HideInInspector] public CinemachineFreeLook FreeLookVCam;
+    [HideInInspector] public bool IsUsingSkillPressed;
+    [HideInInspector] public bool IsExtraActionPressed;
+    [HideInInspector] public bool IsInteractionPressed;
 
     // Start is called before the first frame update
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
         _defaultFOV = FreeLookVCam.m_Lens.FieldOfView;
-        _targetFOV = _defaultFOV;
+        ResetFOV();
     }
+
 
     // Update is called once per frame
     private void FixedUpdate()
@@ -54,7 +58,8 @@ public class Player : MonoBehaviour
     {
         float speed = CalculateFinalSpeed();
         Vector3 direction = Rotating();
-        _rigidBody.AddForce(direction * speed * Time.deltaTime * 100, ForceMode.Acceleration);
+        //_rigidBody.AddForce(direction * speed  * 100,ForceMode.Acceleration);
+        _rigidBody.MovePosition(transform.position + direction * speed * Time.deltaTime * 10);
     }
 
     private Vector3 Rotating()
@@ -71,7 +76,7 @@ public class Player : MonoBehaviour
             cameraForward.normalized * _rawInput.y;
 
         // Rotate the player to the correct fly position.
-        if (targetDirection != Vector3.zero)
+        if (IsMoving() && targetDirection != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
@@ -90,7 +95,15 @@ public class Player : MonoBehaviour
                 Quaternion targetRotation = Quaternion.LookRotation(lastDirection);
                 Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime);
                 _rigidBody.MoveRotation(newRotation);
+            
             }
+            //idle
+            _animator.SetBool("IsMoving", false);
+        }
+        else
+        {
+            //Swim
+            _animator.SetBool("IsMoving", true);
         }
         // Return the current fly direction.
         return targetDirection;
@@ -98,6 +111,43 @@ public class Player : MonoBehaviour
     public void  SetRawInput(Vector2 rawInput)
     {
         _rawInput = rawInput;
+    }
+
+    public void IsUsingSkill()
+    {
+        _animator.SetBool("IsUsingSkill", IsUsingSkillPressed);
+
+        //AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
+        //if (info.normalizedTime >= 1.0f)
+        //{
+        //    _animator.SetBool("IsUsingSkill", false);
+        //}
+    }
+    public void Accelerate()
+    {
+        Debug.Log("Accelerate");
+        SetFOV();
+        AccelerateFactor = 10;
+        _animator.SetBool("IsAccelerate", true);
+    }
+    public void DeAccelerate()
+    {
+        Debug.Log("DeAccelerate");
+        ResetFOV();
+        AccelerateFactor = 0;
+        _animator.SetBool("IsAccelerate", false);
+    }
+    private void ResetFOV()
+    {
+        _targetFOV = _defaultFOV;
+    }
+    private void SetFOV()
+    {
+        _targetFOV = accelerateFOV;
+    }
+    private bool IsMoving()
+    {
+        return (_rawInput.x != 0) || (_rawInput.y != 0);
     }
     public int GetPlayerIndex()
     {
@@ -111,23 +161,8 @@ public class Player : MonoBehaviour
         }
         else
         {
-            var finalSpeed = (Hunger * 0.01f) + (AccelerateFactor * 0.1f) + (_itemSpeedFactor * 0.1f);
+            var finalSpeed = (Hunger * 0.01f) + (AccelerateFactor * 0.1f) + (_itemSpeedFactor * 0.1f) + defaultSpeed;
             return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
         }
     }
-
-    public void Accelerate()
-    {
-        Debug.Log("Accelerate");
-        _targetFOV = accelerateFOV;
-        AccelerateFactor = 10;
-    }
-
-    public void DeAccelerate()
-    {
-        Debug.Log("DeAccelerate");
-        _targetFOV = _defaultFOV;
-        AccelerateFactor = 0;
-    }
-
 }

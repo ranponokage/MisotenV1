@@ -67,15 +67,20 @@ public class PlayerInputHandle: MonoBehaviour
             _player.DeAccelerate();
     }
 
-
+    /// <summary>
+    /// Using Skill
+    /// </summary>
+    /// <param name="context"></param>
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (_player == null)
             return;
         if (context.phase == InputActionPhase.Performed)
-            _player.IsAttackedPressed = true;
+            _player.IsUsingSkillPressed = true; 
         if (context.phase == InputActionPhase.Canceled)
-            _player.IsAttackedPressed = false;
+            _player.IsUsingSkillPressed = false;
+
+        _player.IsUsingSkill();
     }
 
     public void OnExtraAction(InputAction.CallbackContext context)

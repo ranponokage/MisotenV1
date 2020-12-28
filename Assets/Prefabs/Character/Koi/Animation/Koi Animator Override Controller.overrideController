@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Koi Animator Override Controller
+  m_Controller: {fileID: 9100000, guid: e8ab199f82b074642a2a26d14c2cc4b2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f79dae4c17550a1429889ce99b591eed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c9e99a37898188e449c5cfb9cf56107e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: de1341dd450ef2041a24e04e317377e4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7c4301d3c996ffa4181f256a95c40e7b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d9425c00ca412854da8c057ff890f1d4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: caae964d6ca6a5d45b5edd64102e2d63, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 28524e9b74f4a65478ea0b904c68bfa6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f70b840e82ac79d4592e14b140f2dfad, type: 2}

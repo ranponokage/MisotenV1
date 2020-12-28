@@ -96,8 +96,8 @@ public class SpawnSystem : Singleton<SpawnSystem>
     }
     private void SetupPlayerUICamera(Player playerInstance, CameraManager cameraManager)
     {
-        //var uibillboard = playerInstance.GetComponentInChildren<UIBillboard>();
-        //uibillboard.gameplayCameraTransform = cameraManager.PlayerCamera.transform;
+        var uibillboard = playerInstance.GetComponentInChildren<UIBillboard>();
+        uibillboard.gameplayCameraTransform = cameraManager.PlayerCamera.transform;
         //var canvasControl = playerInstance.GetComponentInChildren<PlayerCameraScreenUIControl>();
         //canvasControl.UICamera = cameraManager.PlayerCamera;
     }
