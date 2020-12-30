@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Follow: {fileID: 2103488580}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 80.39155
+    FieldOfView: 80.39174
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1010,7 +1010,7 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 0.75
-    m_Radius: -1.34
+    m_Radius: 1.08
   - m_Height: -0.14
     m_Radius: 2.55
   - m_Height: -1
@@ -1028,7 +1028,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542388453}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.900491, z: -0.71074986}
+  m_LocalPosition: {x: 0, y: 3.900491, z: -1.9401965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 737348200}
@@ -1140,7 +1140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.4004911, z: -0.71074986}
+  m_FollowOffset: {x: 0, y: 0.4004911, z: -1.9401965}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1351,7 +1351,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737348199}
-  m_LocalRotation: {x: 0.2530032, y: 0.0000000069755504, z: -0.0000000018241856, w: 0.96746546}
+  m_LocalRotation: {x: 0.10082545, y: -0.000000004279674, z: 4.3371018e-10, w: 0.99490416}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 80.39155
+    FieldOfView: 80.39174
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1641,7 +1641,7 @@ PrefabInstance:
     - target: {fileID: 5584075304437438228, guid: 3433acbbab3632545845a33b66bbb1e1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5584075304437438231, guid: 3433acbbab3632545845a33b66bbb1e1,
         type: 3}
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 80.39155
+    FieldOfView: 80.39174
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -1876,7 +1876,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551644269}
-  m_LocalRotation: {x: 0.17200279, y: -0.000000016965831, z: 0.000000002962319, w: 0.9850965}
+  m_LocalRotation: {x: 0.018075012, y: 0.000000016973603, z: -3.068483e-10, w: 0.9998367}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1908,7 +1908,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580832964}
-  m_LocalRotation: {x: 0.2127667, y: -0.010700161, z: 0.002330134, w: 0.97704166}
+  m_LocalRotation: {x: 0.059593484, y: -0.010931488, z: 0.0006526446, w: 0.9981627}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1944,7 +1944,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 80.39155
+    FieldOfView: 80.39174
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -2017,7 +2017,7 @@ PrefabInstance:
     - target: {fileID: 3886526348438398405, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: field of view
-      value: 80.39155
+      value: 80.39174
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398407, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
@@ -2042,27 +2042,27 @@ PrefabInstance:
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.71074986
+      value: -1.9401965
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97247624
+      value: 0.99676156
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.23293768
+      value: 0.08022721
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.005324914
+      value: -0.0054579233
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0012754791
+      value: 0.00043929653
       objectReference: {fileID: 0}
     - target: {fileID: 3886526348438398410, guid: 2925a5594af5fb6498642574e488bdf1,
         type: 3}
@@ -2503,7 +2503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.4004911, z: -0.71074986}
+  m_FollowOffset: {x: 0, y: 0.4004911, z: -1.9401965}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2946,7 +2946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0.4004911, z: -0.71074986}
+  m_FollowOffset: {x: 0, y: 0.4004911, z: -1.9401965}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
