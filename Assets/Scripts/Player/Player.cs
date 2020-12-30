@@ -4,21 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Wyt.CharacterStats;
 
 public class Player : MonoBehaviour
 {
 
     [SerializeField] public int PlayerIndex = 0;
-    [SerializeField] public float Statmina = 100; // Accelerator
-    [SerializeField] public float Hunger = 100;
-    [SerializeField] public float Sam = 100;
-    [SerializeField] public float Mass = 1;
-    [SerializeField] public float TurnSmoothTime = 0.1f;
+    [SerializeField] public CharacterStat Statmina; // Accelerator
+    [SerializeField] public CharacterStat Hunger;
+    [SerializeField] public CharacterStat Sam;
+    [SerializeField] public CharacterStat Mass;
+    [SerializeField] public CharacterStat TurnSmoothTime;
 
-    [SerializeField] private float defaultSpeed = 5f;
-    [SerializeField] private float minSpeed = 0.5f;
-    [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] public float AccelerateFactor = 0;
+    [SerializeField] private float defaultSpeed;
+    [SerializeField] private float minSpeed;
+    [SerializeField] private float maxSpeed;
+    [SerializeField] public  float AccelerateFactor;
+
     [SerializeField] private float accelerateFOV = 100f;                       // the FOV to use on the camera when player is Accelerate.
 
     private Vector2 _rawInput;
@@ -59,7 +61,7 @@ public class Player : MonoBehaviour
         float speed = CalculateFinalSpeed();
         Vector3 direction = Rotating();
         //_rigidBody.AddForce(direction * speed  * 100,ForceMode.Acceleration);
-        _rigidBody.MovePosition(transform.position + direction * speed * Time.deltaTime * 10);
+        _rigidBody.MovePosition(transform.position + direction * speed * Time.deltaTime);
     }
 
     private Vector3 Rotating()
@@ -80,7 +82,7 @@ public class Player : MonoBehaviour
         {
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
-            Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime);
+            Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime.Value);
 
             _rigidBody.MoveRotation(newRotation);
             lastDirection = targetDirection;
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
             {
                 lastDirection.y = 0;
                 Quaternion targetRotation = Quaternion.LookRotation(lastDirection);
-                Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime);
+                Quaternion newRotation = Quaternion.Slerp(_rigidBody.rotation, targetRotation, TurnSmoothTime.Value);
                 _rigidBody.MoveRotation(newRotation);
             
             }
@@ -155,13 +157,13 @@ public class Player : MonoBehaviour
     }
     private float CalculateFinalSpeed()
     {
-        if (Hunger <= 0)
+        if (Hunger.Value <= 0)
         {
             return minSpeed;
         }
         else
         {
-            var finalSpeed = (Hunger * 0.01f) + (AccelerateFactor * 0.1f) + (_itemSpeedFactor * 0.1f) + defaultSpeed;
+            var finalSpeed = (Hunger.Value * 0.01f) + (AccelerateFactor * 0.1f) + defaultSpeed;
             return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
         }
     }

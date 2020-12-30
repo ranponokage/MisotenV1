@@ -481,11 +481,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: 0
-  Statmina: 100
-  Hunger: 100
-  Sam: 100
-  Mass: 1
-  TurnSmoothTime: 0.06
+  Statmina:
+    BaseValue: 100
+  Hunger:
+    BaseValue: 100
+  Sam:
+    BaseValue: 100
+  Mass:
+    BaseValue: 10
+  TurnSmoothTime:
+    BaseValue: 0.06
   defaultSpeed: 1
   minSpeed: 0.5
   maxSpeed: 5

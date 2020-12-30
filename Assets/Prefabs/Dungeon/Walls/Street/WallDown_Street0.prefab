@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 9119958144890796085}
   - component: {fileID: 1233043329810202891}
   - component: {fileID: 6387969790842048351}
+  - component: {fileID: 4971952666112275312}
   m_Layer: 0
   m_Name: MeshBaker-mesh-mesh
   m_TagString: Untagged
@@ -110,3 +111,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &4971952666112275312
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4421005759080893138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 35, y: 0.24341986, z: 35}
+  m_Center: {x: 0.0000009536743, y: 0.05126819, z: 2.4999995}
