@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _rigidBody = GetComponent<Rigidbody>();
-        _animator = GetComponent<Animator>();
+        _animator = GetComponentInChildren<Animator>();
         _defaultFOV = FreeLookVCam.m_Lens.FieldOfView;
         ResetFOV();
     }

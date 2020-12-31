@@ -14,6 +14,11 @@ public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
         _playerConfigs = new List<PlayerConfiguration>();
     }
 
+    public void SetPlayerCharacterIndex(int index, int charactertIndex)
+    {
+        _playerConfigs[index].CharactertIndex = charactertIndex;
+    }
+
     public void SetPlayerNameColor(int index, Color color)
     {
         _playerConfigs[index].PlayerNameColor = color;
@@ -40,6 +45,8 @@ public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
 
 public class PlayerConfiguration
 {
+    
+
     public PlayerConfiguration (PlayerInput playerinput)
     {
         Input = playerinput;
@@ -47,8 +54,8 @@ public class PlayerConfiguration
     }
     public PlayerInput Input { get; set; }
     public int PlayerIndex {get; set;}
+    public int CharactertIndex { get; set; }
     public bool IsReady { get; set; }
 
     public Color PlayerNameColor { get; set; }
-
 }

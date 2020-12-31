@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MahiMahi Animator Override Controller
+  m_Controller: {fileID: 9100000, guid: e8ab199f82b074642a2a26d14c2cc4b2, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: f79dae4c17550a1429889ce99b591eed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9201ad55ad370e34e94a5c20b1e4773a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: de1341dd450ef2041a24e04e317377e4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 476a62f58ab9bc44b957ff85d6ef7284, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d9425c00ca412854da8c057ff890f1d4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 440c9be3719ae3d43893a38de67de24d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 28524e9b74f4a65478ea0b904c68bfa6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 75812d713083e3643924dbb94c77133f, type: 2}
