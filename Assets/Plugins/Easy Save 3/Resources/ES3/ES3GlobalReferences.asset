@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6b16dc7c203450459bb86e24305f9ca, type: 3}
+  m_Name: ES3GlobalReferences
+  m_EditorClassIdentifier: 
+  refId:
+    _Keys:
+    - {fileID: 11500000, guid: ca81c053a119236418df71859065e3e2, type: 3}
+    - {fileID: 11400000, guid: c656c10e8c8fa4e47ba5ea0473a978df, type: 2}
+    - {fileID: 11500000, guid: 0b4de9a2911171949917dceac0670c04, type: 3}
+    - {fileID: 11500000, guid: bd13adbb36a3a614fafbec256720d4c4, type: 3}
+    - {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+    - {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+    - {fileID: 2800000, guid: ea13be5f2dc4d024db2e9dc9711a9911, type: 3}
+    - {fileID: 21300000, guid: ea13be5f2dc4d024db2e9dc9711a9911, type: 3}
+    - {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+    - {fileID: 2800000, guid: 5c4035ec3ea813e4ab4583b88dee0603, type: 3}
+    - {fileID: 21300000, guid: 5c4035ec3ea813e4ab4583b88dee0603, type: 3}
+    - {fileID: 2800000, guid: 30f0bd5148e98a94a98340123d872912, type: 3}
+    - {fileID: 21300000, guid: 30f0bd5148e98a94a98340123d872912, type: 3}
+    - {fileID: 11500000, guid: 676d3fab9cb63014e887ddcb72cd9fd6, type: 3}
+    - {fileID: 2100000, guid: bb78e0a547469b74a9a83144692be099, type: 2}
+    - {fileID: 4800000, guid: e14d6472c3f24264c86881bfd44cc8c0, type: 3}
+    - {fileID: 2100000, guid: c311c93c6f9e43144aeffd4e97d68988, type: 2}
+    - {fileID: 4800000, guid: 39abf6d84bae44d64b164efc87b72b37, type: 3}
+    - {fileID: 20000000, guid: de5b79f3b9810714692a3631d5704fa0, type: 2}
+    - {fileID: 4800000, guid: fc13d6f37ca5b4007aede4d6b1ced4da, type: 3}
+    - {fileID: 4800000, guid: 7955b1dc75645ac40bcd52f5b2d4501f, type: 3}
+    - {fileID: 4800000, guid: 64155828dc43e46dfa7afe722365cea6, type: 3}
+    - {fileID: 4800000, guid: dbe3bfac5535a8b4b8eff641061d2cf1, type: 3}
+    - {fileID: 11500000, guid: dfef4100bd5759f409284b8b198367ee, type: 3}
+    - {fileID: 11500000, guid: c7bd56ec14cbace4799057bfab49896c, type: 3}
+    - {fileID: 11500000, guid: b47762ded9761414ebb71d48b51adeaa, type: 3}
+    - {fileID: 11500000, guid: 31c6dc71ed44c294bb6d70ec06b053b0, type: 3}
+    - {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+    - {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+    - {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+    - {fileID: 11500000, guid: f4044717213e31446939f7bd49c896ea, type: 3}
+    - {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
+    - {fileID: 11500000, guid: 1df51b9de93a5a441a92e51d1bb96f16, type: 3}
+    - {fileID: 11500000, guid: cb8b0d3bec83cdb42a686649c844e101, type: 3}
+    - {fileID: 4300000, guid: 285d2197ed7e88246a03d050356f70f3, type: 3}
+    - {fileID: 2100000, guid: 5d430e944c5aeba4da80acbfa151d54b, type: 2}
+    - {fileID: 11500000, guid: 1f541739679c8804590c7234ef8ae169, type: 3}
+    - {fileID: 4300000, guid: 5656afe16198f1940a1e08dfbc2ea7a2, type: 3}
+    - {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+    - {fileID: 2100000, guid: f8b2967d7f301854b898ea8df4a0dccd, type: 2}
+    - {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+    - {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+    _Values: 6a10804a05050e1a47e133729314d613b5c15ada6f9d135ffec2effc7b24d806f62d050513bb8773367ba7f52ff5e9412f61ac4e0311fc221c5d8fb6b9b269604d7decb2905a1221904ed11b77aff667e7b0141e3ca5e90fe1bdf5b33f32af09a144a5ade3f49914603ef8b805de387ca954a952ddcd6b73be3eec69f570e173c7bbce67552ed044bbbf92073406ad12f3fa1a730ead1b6e2c7b05390e30791954c3845deeeba97a7b9b67e1c49cc04891da5cef8a5481743aabb471814f2321babdcae88d69a30111ace490afcd354019da740f2cc3875da98c33ceb3a9592ce8a8da9e84c6d94828d529302e6d64600e7014f9cdfe5c1f8110e4e6e1fb2750fb00408a8fb3ef09e359c423cc4d473dc72059cd937018378e2479d6f0ce7f699a4acbb87d59f6113202bff182b0ff7a9fac19b2134f6b74c8fe0b6755e5680c43290882b6d8335b12badf801091937a

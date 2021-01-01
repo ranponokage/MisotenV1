@@ -49,35 +49,35 @@ MonoBehaviour:
   _roomRoot: {fileID: 1705714476032127469}
   _roomPrefab: {fileID: 4787999951123064777, guid: 6bf04d48925a3cf489dfb4738eeee9de,
     type: 3}
-  _roomNumber: 20
+  _roomNumber: 10
   _wallType:
-    SingleLeft: {fileID: 4660392864016136417, guid: 8190050f5a5872c498762bbf3421132a,
+    SingleLeft: {fileID: 6822873938101217450, guid: 8190050f5a5872c498762bbf3421132a,
       type: 3}
-    SingleRight: {fileID: 6726789731135238992, guid: b6db3fc3997ab804581cb46f068d7f60,
+    SingleRight: {fileID: 6685259576720212380, guid: b6db3fc3997ab804581cb46f068d7f60,
       type: 3}
-    SingleUp: {fileID: 7388142535341295798, guid: 6d461dc7a50a9804485ca0e3895b4cab,
+    SingleUp: {fileID: 6423372995316805640, guid: 6d461dc7a50a9804485ca0e3895b4cab,
       type: 3}
     SingleDown: {fileID: 8901162731504221180, guid: 57f04af37cf1e4d478cd2bb1348d476c,
       type: 3}
-    DoubleLU: {fileID: 4138785583565043287, guid: 9c3312e400e9d1540b603abb9b32227f,
+    DoubleLU: {fileID: 1336599723715319843, guid: 9c3312e400e9d1540b603abb9b32227f,
       type: 3}
-    DoubleLR: {fileID: 5523193694514750296, guid: a197f2736268bdf41a77bccd8cf84c46,
+    DoubleLR: {fileID: 170103819914622299, guid: a197f2736268bdf41a77bccd8cf84c46,
       type: 3}
     DoubleLD: {fileID: 1790356532227604712, guid: 0b8b7d6cd12b688479f9eed0b8f80280,
       type: 3}
-    DoubleUR: {fileID: 7959941512675000657, guid: a4e4dcc18aebe7048b054742caaccb95,
+    DoubleUR: {fileID: 687535132783733877, guid: a4e4dcc18aebe7048b054742caaccb95,
       type: 3}
     DoubleUD: {fileID: 356810724781691501, guid: f04624adbdf0e014eb74e358459d69de,
       type: 3}
-    DoubleRD: {fileID: 4504440835987997850, guid: d25ff287a62715a4fa38e7359ba88aaa,
+    DoubleRD: {fileID: 4814640207707344406, guid: d25ff287a62715a4fa38e7359ba88aaa,
       type: 3}
-    TripleLUR: {fileID: 8105176114779753352, guid: 98abdd9112b80154483c5e19aa284027,
+    TripleLUR: {fileID: 2026464708062579528, guid: 98abdd9112b80154483c5e19aa284027,
       type: 3}
     TripleLUD: {fileID: 2849772887565862459, guid: 0c6b8011a5c1a444ba6ed5df8cf8fd62,
       type: 3}
-    TripleURD: {fileID: 7934351711793040461, guid: e57b5458a8a5e5247b39b3867e7d1aa7,
+    TripleURD: {fileID: 1937978974750653097, guid: e57b5458a8a5e5247b39b3867e7d1aa7,
       type: 3}
-    TripleLRD: {fileID: 8047429896112882026, guid: 2a92d81f477afe04388f654361b5f49b,
+    TripleLRD: {fileID: 2468027162795820011, guid: 2a92d81f477afe04388f654361b5f49b,
       type: 3}
     Cross: {fileID: 1648673710719533332, guid: fdc44b98d3ed3d348a35f2c5262418d6, type: 3}
   _generatorPoint: {fileID: 1705714475318506379}
@@ -86,11 +86,11 @@ MonoBehaviour:
   _roomLayer:
     serializedVersion: 2
     m_Bits: 256
-  _endPoint: {fileID: 1738614984312693224, guid: a0911f2a02e3d27449f28090ec887eff,
+  _endPoint: {fileID: 7096961374291941173, guid: 3057b1af7cc5d5249b43584a3bb8d37e,
     type: 3}
   _items:
-  - {fileID: 1738614984312693224, guid: a0911f2a02e3d27449f28090ec887eff, type: 3}
-  _maxItem: 10
+  - {fileID: 190162, guid: c6342acfccda5a94bae465531baf3640, type: 3}
+  _maxItem: 1
   _itemStepToStart: 1
   _itemStepToEnd: 2
   SpawnPoint_P1: {fileID: 0}

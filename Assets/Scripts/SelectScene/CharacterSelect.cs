@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
-    [SerializeField] CharacterInfo[] characters; 
+    [SerializeField] GameObject[] characters; 
     [SerializeField] int selectedCharacter = 0;
 
     public void NextCharacter()
@@ -27,13 +27,15 @@ public class CharacterSelect : MonoBehaviour
 
     public void SetPlayer1()
     {
-        PlayerPrefs.SetInt("Player1.SelectedCharacter", selectedCharacter);
+        //PlayerPrefs.SetInt("Player1.SelectedCharacter", selectedCharacter);
+        ES3.Save("Player1.SelectedCharacter", selectedCharacter);
         // LOAD SCENE
 
     }
     public void SetPlayer2()
     {
-        PlayerPrefs.SetInt("Player2.SelectedCharacter", selectedCharacter);
+        //PlayerPrefs.SetInt("Player2.SelectedCharacter", selectedCharacter);
+        ES3.Save("Player2.SelectedCharacter", selectedCharacter);
         // LOAD SCENE
 
     }
