@@ -1351,7 +1351,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 737348199}
-  m_LocalRotation: {x: 0.10064168, y: -1e-45, z: -0, w: 0.99492276}
+  m_LocalRotation: {x: 0.10064168, y: -1.015e-42, z: 6.6e-44, w: 0.99492276}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   musicFadeInTime: 0
   musicFadeOutTime: 0
   loopMode: 1
-  music: {fileID: 0}
+  music: {fileID: 11400000, guid: 2f390cd26399ae346b1fb1c230361c5a, type: 2}
   onStart: 1
   onEnable: 0
   onDisable: 0
@@ -2012,7 +2012,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551644269}
-  m_LocalRotation: {x: -0.0011845038, y: 0.0000000024221647, z: 2.8690652e-12, w: 0.9999993}
+  m_LocalRotation: {x: -0.0011845038, y: 0.0000000016865452, z: 1.9977203e-12, w: 0.9999993}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
