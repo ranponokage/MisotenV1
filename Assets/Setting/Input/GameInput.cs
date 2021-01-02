@@ -838,7 +838,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""f79824c1-1a3b-4867-85b8-fc8ba79305db"",
                     ""path"": ""*/{Submit}"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""KeyBoardAndMouse;GamePad"",
                     ""action"": ""Submit"",

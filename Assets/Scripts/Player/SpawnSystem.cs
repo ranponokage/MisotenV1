@@ -12,6 +12,8 @@ public class SpawnSystem : Singleton<SpawnSystem>
     [SerializeField] GameObject[] _minimap;
     [SerializeField] private Transform[] _spawnLocations;
 
+    [SerializeField] private GameModeSO gameModeSO;
+
 
     private PlayerInputManager _playerInputManager;
 
@@ -26,7 +28,7 @@ public class SpawnSystem : Singleton<SpawnSystem>
         //_playerInputManager = FindObjectOfType<PlayerInputManager>();
         //_playerInputManager.playerPrefab = playerInputHandlePrefab;
 
-        switch (GameManager.Instance.gameMode)
+        switch (gameModeSO.gameMode)
         {
             case GameMode.OnePlayer:
                 //_playerCharacterIndex[0] = PlayerPrefs.GetInt("Player1.SelectedCharacter");

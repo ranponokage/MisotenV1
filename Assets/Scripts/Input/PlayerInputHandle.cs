@@ -6,10 +6,13 @@ using System.Linq;
 
 public class PlayerInputHandle: MonoBehaviour
 {
-    private PlayerInput _playerInput;
+    //private PlayerInput _playerInput;
+    private PlayerConfiguration _playerConfig;
     private Player _player;
     private bl_MiniMap _miniMap;
     private CameraManager _cameraManager;
+
+    private GameInput gameInput;
 
     /*
     // Gameplay
@@ -36,18 +39,70 @@ public class PlayerInputHandle: MonoBehaviour
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
-        var index = _playerInput.playerIndex;
+        //_playerInput = GetComponent<PlayerInput>();
+        //var index = _playerInput.playerIndex;
 
         var players = FindObjectsOfType<Player>();
-        _player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
-
+        //_player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
 
         var miniMaps = FindObjectsOfType<bl_MiniMap>();
-        _miniMap = miniMaps.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        //_miniMap = miniMaps.FirstOrDefault(m => m.GetPlayerIndex() == index);
 
         var cameraManagers = FindObjectsOfType<CameraManager>();
-        _cameraManager = cameraManagers.FirstOrDefault(c => c.GetPlayerIndex() == index);
+        //_cameraManager = cameraManagers.FirstOrDefault(c => c.GetPlayerIndex() == index);
+
+        gameInput = new GameInput();
+    }
+
+    public void InitializePlayer(PlayerConfiguration playerConfiguration)
+    {
+        _playerConfig = playerConfiguration;
+
+        _playerConfig.Input.onActionTriggered += Input_onActionTriggered;
+    }
+
+    private void Input_onActionTriggered(InputAction.CallbackContext obj)
+    {
+        if(obj.action.name == gameInput.Gameplay.Move.name)
+        {
+            OnMove(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.Accelerate.name)
+        {
+            OnAccelerate(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.Attack.name)
+        {
+            OnAttack(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.ExtraAction.name)
+        {
+            OnExtraAction(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.Interact.name)
+        {
+            OnInteract(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.MinimapToggle.name)
+        {
+            OnMinimapToggle(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.MinimapZoomIn.name)
+        {
+            OnMinimapZoomIn(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.MinimapZoomOut.name)
+        {
+            OnMinimapZoomOut(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.MouseControlCamera.name)
+        {
+            OnMouseControlCamera(obj);
+        }
+        if (obj.action.name == gameInput.Gameplay.RotateCamera.name)
+        {
+            OnRotateCamera(obj);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)

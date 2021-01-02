@@ -34,7 +34,7 @@ public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
 
     public void HandlePlayerJoin(PlayerInput playerInput)
     {
-        Debug.Log("Player Joined" + playerInput.playerIndex);
+        Debug.Log("Player Joined　" + playerInput.playerIndex);
         if(!_playerConfigs.Any(p=>p.PlayerIndex == playerInput.playerIndex))
         {
             playerInput.transform.SetParent(transform);
@@ -45,8 +45,6 @@ public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
 
 public class PlayerConfiguration
 {
-    
-
     public PlayerConfiguration (PlayerInput playerinput)
     {
         Input = playerinput;
@@ -54,8 +52,7 @@ public class PlayerConfiguration
     }
     public PlayerInput Input { get; set; }
     public int PlayerIndex {get; set;}
-    public int CharactertIndex { get; set; }
     public bool IsReady { get; set; }
-
     public Color PlayerNameColor { get; set; }
+    public int CharactertIndex { get; set; }
 }

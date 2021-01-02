@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerCharacterGroup : MonoBehaviour
 {
-
     [SerializeField] private int _playerIndex = -1;
 
     [SerializeField] private Player[] _characterPrefabs;

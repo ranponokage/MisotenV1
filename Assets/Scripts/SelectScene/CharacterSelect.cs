@@ -1,42 +1,93 @@
 ﻿
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class CharacterSelect : MonoBehaviour
 {
-    [SerializeField] GameObject[] characters; 
-    [SerializeField] int selectedCharacter = 0;
+    [SerializeField] GameObject[] _characters;
+    [SerializeField] int _selectedCharacterIndex = 0;
+    //[SerializeField] Button _next;
+    //[SerializeField] Button _previous;
+    //[SerializeField] Button _submit;
+
+    private int _playerIndex;
+    private float ignoreInputTime = 1.5f;
+    private bool inputEnabled;
+
+    private void Start()
+    {
+        //_next.onClick.AddListener(NextCharacter);
+        //_previous.onClick.AddListener(PreviousCharacter);
+        //_submit.onClick.AddListener(SetPlayerReady);
+    }
 
     public void NextCharacter()
     {
-        characters[selectedCharacter].gameObject.SetActive(false);
-        selectedCharacter = (selectedCharacter + 1) % characters.Length;
-        characters[selectedCharacter].gameObject.SetActive(true);
+        _characters[_selectedCharacterIndex].gameObject.SetActive(false);
+        _selectedCharacterIndex = (_selectedCharacterIndex + 1) % _characters.Length;
+        _characters[_selectedCharacterIndex].gameObject.SetActive(true);
     }
 
     public void PreviousCharacter()
     {
-        characters[selectedCharacter].gameObject.SetActive(false);
-        selectedCharacter--;
+        _characters[_selectedCharacterIndex].gameObject.SetActive(false);
+        _selectedCharacterIndex--;
 
-        if (selectedCharacter < 0)
+        if (_selectedCharacterIndex < 0)
         {
-            selectedCharacter += characters.Length;
+            _selectedCharacterIndex += _characters.Length;
         }
-        characters[selectedCharacter].gameObject.SetActive(true);
+        _characters[_selectedCharacterIndex].gameObject.SetActive(true);
     }
+
 
     public void SetPlayer1()
     {
         //PlayerPrefs.SetInt("Player1.SelectedCharacter", selectedCharacter);
-        ES3.Save("Player1.SelectedCharacter", selectedCharacter);
+        ES3.Save("Player1.SelectedCharacter", _selectedCharacterIndex);
         // LOAD SCENE
 
     }
     public void SetPlayer2()
     {
         //PlayerPrefs.SetInt("Player2.SelectedCharacter", selectedCharacter);
-        ES3.Save("Player2.SelectedCharacter", selectedCharacter);
+        ES3.Save("Player2.SelectedCharacter", _selectedCharacterIndex);
         // LOAD SCENE
 
+    }
+
+    void Update()
+    {
+        if (Time.time > ignoreInputTime)
+        {
+            inputEnabled = true;
+        }
+    }
+    public void SetPlayerIndex(int playerindex)
+    {
+        _playerIndex = playerindex;
+        ignoreInputTime = Time.time + ignoreInputTime;
+    }
+
+    public void SetPlayerCharacterIndex(int index)
+    {
+        if (!inputEnabled) { return; }
+
+        PlayerConfigurationManager.Instance.SetPlayerCharacterIndex(_playerIndex, index);
+    }
+
+    public void SetPlayerReady()
+    {
+        if (!inputEnabled) { return; }
+
+        PlayerConfigurationManager.Instance.ReadyPlayer(_playerIndex);
+    }
+
+    public void SetPlayerNameColor(Color color)
+    {
+        if (!inputEnabled) { return; }
+
+        PlayerConfigurationManager.Instance.SetPlayerNameColor(_playerIndex, color);
     }
 }

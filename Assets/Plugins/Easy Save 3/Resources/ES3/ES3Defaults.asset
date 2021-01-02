@@ -30,9 +30,9 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp
+    - Assembly-CSharp-firstpass
     - MeshBakerCore
     - Cinemachine
-    - Assembly-CSharp-firstpass
     - MeshBakerEditor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0

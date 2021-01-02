@@ -13,6 +13,8 @@ public class CharacterSelectUIControl : MonoBehaviour
     [SerializeField] Button P2Previous;
     [SerializeField] Button P2Next;
 
+    [SerializeField] GameModeSO _gameModeSO;
+
     private StartGame startGame;
     private bool P1Submit_IsPressed;
     private bool P2Submit_IsPressed;
@@ -41,7 +43,7 @@ public class CharacterSelectUIControl : MonoBehaviour
 
     public void StartGame()
     {
-        switch (GameManager.Instance.gameMode)
+        switch (_gameModeSO.gameMode)
         {
             case GameMode.OnePlayer:
                 if (P1Submit_IsPressed)
