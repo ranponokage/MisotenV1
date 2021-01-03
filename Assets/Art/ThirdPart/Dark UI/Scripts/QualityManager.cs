@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Events;
@@ -37,13 +38,18 @@ namespace Michsky.UI.Dark
                 resolutionSelector.dropdownItems.RemoveRange(0, resolutionSelector.dropdownItems.Count);
                 resolutions = Screen.resolutions;
 
+                resolutions = Screen.resolutions.Select(resolution =>
+new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
+                //resolutionSelector.();
+
                 int currentResolutionIndex = 0;
                 for (int i = 0; i < resolutions.Length; i++)
                 {
                     string option = resolutions[i].width + " x " + resolutions[i].height;
                     options.Add(option);
 
-                    if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                    if (resolutions[i].width == Screen.currentResolution.width && 
+                        resolutions[i].height == Screen.currentResolution.height)
                     {
                         currentResolutionIndex = i;
                         resolutionSelector.selectedItemIndex = currentResolutionIndex;

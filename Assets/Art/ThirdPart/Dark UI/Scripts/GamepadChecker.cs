@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Rewired;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Michsky.UI.Dark
 {
     public class GamepadChecker : MonoBehaviour
     {
+        private Player _player;
+
         [Header("RESOURCES")]
         public GameObject virtualCursor;
         public GameObject eventSystem;
@@ -29,6 +32,8 @@ namespace Michsky.UI.Dark
 
         void Start()
         {
+            _player = ReInput.players.GetPlayer(0);
+
             checkerScript = gameObject.GetComponent<GamepadChecker>();
 
             if (alwaysSearch == false)

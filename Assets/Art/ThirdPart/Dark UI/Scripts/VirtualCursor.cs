@@ -96,6 +96,8 @@ namespace Michsky.UI.Dark
             cursorPos.y += Input.GetAxis(verticalAxis) * speed * Time.deltaTime;
             cursorPos.y = Mathf.Clamp(cursorPos.y, -+border.rect.height / 2, border.rect.height / 2);
 
+            Debug.Log(cursorPos);
+
             cursorObj.anchoredPosition = cursorPos;
         }
 
