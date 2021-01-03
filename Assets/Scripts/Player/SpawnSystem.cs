@@ -2,11 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class SpawnSystem : Singleton<SpawnSystem>
 {
-    [SerializeField] private GameObject playerInputHandlePrefab;
     [SerializeField] PlayerCharacterGroup _playerCharacterGroup;
     [SerializeField] CameraManager[] _cameraManager;
     [SerializeField] GameObject[] _minimap;
@@ -14,8 +12,6 @@ public class SpawnSystem : Singleton<SpawnSystem>
 
     [SerializeField] private GameModeSO gameModeSO;
 
-
-    private PlayerInputManager _playerInputManager;
 
     private int[] _playerCharacterIndex;
     private int _numberOfPlayers;

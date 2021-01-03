@@ -1,9 +1,6 @@
 ﻿using Cinemachine;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Wyt.CharacterStats;
 
 public class Player : MonoBehaviour

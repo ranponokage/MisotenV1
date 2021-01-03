@@ -1,7 +1,8 @@
 ﻿using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using Rewired;
+using System;
 
 public class CameraManager : MonoBehaviour
 {
@@ -10,11 +11,36 @@ public class CameraManager : MonoBehaviour
     public CinemachineFreeLook FreeLookVCam;
     private bool _isRMBPressed;
 
+    private Vector2 _lookVector;
+    private Rewired.Player _rPlayer;
+
     [SerializeField, Range(1f, 5f)]
     private float speed = 2f;
 
     private void Awake()
     {
+        _rPlayer = ReInput.players.GetPlayer(PlayerIndex);
+    }
+
+    private void Update()
+    {
+        //GetLookInput();
+        //if(_rPlayer.GetButton("MouseControlCamera"))
+        //{
+        //    EnableMouseControlCamera();
+        //}
+        //else
+        //{
+        //    DisableMouseControlCamera();
+
+        //}
+        // OnCameraMove(_lookVector);
+    }
+
+    private void GetLookInput()
+    {
+        _lookVector.x = _rPlayer.GetAxis("Look X"); // get input by name or action id
+        _lookVector.y = _rPlayer.GetAxis("Look Y");
     }
 
     public int GetPlayerIndex() { return PlayerIndex; }
@@ -25,7 +51,7 @@ public class CameraManager : MonoBehaviour
         FreeLookVCam.LookAt = target;
     }
 
-    public void OnEnableMouseControlCamera()
+    private void EnableMouseControlCamera()
     {
         _isRMBPressed = true;
 
@@ -33,7 +59,7 @@ public class CameraManager : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public void OnDisableMouseControlCamera()
+    private void DisableMouseControlCamera()
     {
         _isRMBPressed = false;
 
@@ -46,10 +72,10 @@ public class CameraManager : MonoBehaviour
         FreeLookVCam.m_YAxis.m_InputAxisValue = 0;
     }
 
-    public void OnCameraMove(Vector2 cameraMovement, bool isDeviceMouse)
+    public void OnCameraMove(Vector2 cameraMovement)
     {
 
-        if (isDeviceMouse && !_isRMBPressed)
+        if (!_isRMBPressed)
             return;
         FreeLookVCam.m_XAxis.m_InputAxisValue = cameraMovement.x * Time.smoothDeltaTime * speed;
         FreeLookVCam.m_YAxis.m_InputAxisValue = cameraMovement.y * Time.smoothDeltaTime * speed;

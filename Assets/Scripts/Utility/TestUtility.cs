@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.InputSystem;
+
 
 public class TestUtility : MonoBehaviour
 {
     void Update()
     {
-        var keyboard = Keyboard.current; 
 
-        if (keyboard.rKey.wasPressedThisFrame)
+
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
