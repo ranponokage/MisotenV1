@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class SpawnSystem : Singleton<SpawnSystem>
 {
-    [SerializeField] private GameObject playerInputHandlePrefab;
+
     [SerializeField] PlayerCharacterGroup _playerCharacterGroup;
     [SerializeField] CameraManager[] _cameraManager;
     [SerializeField] GameObject[] _minimap;
@@ -15,15 +15,16 @@ public class SpawnSystem : Singleton<SpawnSystem>
     [SerializeField] private GameModeSO gameModeSO;
 
 
-    private PlayerInputManager _playerInputManager;
-
     private int[] _playerCharacterIndex;
+    private PlayerConfiguration[] _playerConfigs;
     private int _numberOfPlayers;
+
 
     // Start is called before the first frame update
     void Awake()
     {
         _playerCharacterIndex = new int[2];
+        _playerConfigs = PlayerConfigurationManager.Instance.GetPlayerConfigs().ToArray();
 
         //_playerInputManager = FindObjectOfType<PlayerInputManager>();
         //_playerInputManager.playerPrefab = playerInputHandlePrefab;
@@ -79,6 +80,7 @@ public class SpawnSystem : Singleton<SpawnSystem>
         {
             var playerInstance = InstantiatePlayer(_playerCharacterGroup.GetCharacter(playerCharacterIndex[i]),
                 _spawnLocations[i]);
+            playerInstance.GetComponent<PlayerInputHandle>().InitializePlayer(_playerConfigs[i]);
             playerInstance.PlayerIndex = i;
             SetupMinimap(playerInstance, i);
             SetupMainCameras(playerInstance, _cameraManager[i]);

@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
-public class SelectScenePlayerSetup : MonoBehaviour
+public class SelectSceneSpawnPlayerSetup : MonoBehaviour
 {
+    [SerializeField] private GameObject _playerSetupPrefab;
+
+    private GameObject _playerSetupRoot;
     private PlayerInput _playerInput;
     private CameraManager _cameraManager;
     private GameInput gameInput;
@@ -14,8 +18,18 @@ public class SelectScenePlayerSetup : MonoBehaviour
     {
         _playerInput = GetComponent<PlayerInput>();
         var index = _playerInput.playerIndex;
-        var cameraManagers = FindObjectsOfType<CameraManager>();
-        _cameraManager = cameraManagers.FirstOrDefault(c => c.GetPlayerIndex() == index);
+
+
+        _playerSetupRoot = GameObject.Find("PlayerSetupRoot");
+        if (_playerSetupRoot != null)
+        {
+            var playerSetup = Instantiate(_playerSetupPrefab, _playerSetupRoot.transform);
+            _playerInput.uiInputModule = playerSetup.GetComponentInChildren<InputSystemUIInputModule>();
+            playerSetup.GetComponentInChildren<CharacterSelect>().SetPlayerIndex(_playerInput.playerIndex);
+
+            _cameraManager = playerSetup.GetComponentInChildren<CameraManager>();
+            _cameraManager.SetPlayerIndex(_playerInput.playerIndex);
+        }
 
         _playerInput.onActionTriggered += _playerInput_onActionTriggered;
 

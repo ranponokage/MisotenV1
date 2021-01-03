@@ -1,25 +1,25 @@
 ﻿
+using System;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 
 public class CharacterSelect : MonoBehaviour
 {
-    [SerializeField] GameObject[] _characters;
-    [SerializeField] int _selectedCharacterIndex = 0;
-    //[SerializeField] Button _next;
-    //[SerializeField] Button _previous;
-    //[SerializeField] Button _submit;
-
     private int _playerIndex;
+
+    [SerializeField] private GameObject[] _characters;
+    [SerializeField] private int _selectedCharacterIndex = 0;
+
+    [SerializeField] private TMP_Text _playerNum;
+
+
     private float ignoreInputTime = 1.5f;
     private bool inputEnabled;
 
     private void Start()
     {
-        //_next.onClick.AddListener(NextCharacter);
-        //_previous.onClick.AddListener(PreviousCharacter);
-        //_submit.onClick.AddListener(SetPlayerReady);
+
     }
 
     public void NextCharacter()
@@ -28,7 +28,6 @@ public class CharacterSelect : MonoBehaviour
         _selectedCharacterIndex = (_selectedCharacterIndex + 1) % _characters.Length;
         _characters[_selectedCharacterIndex].gameObject.SetActive(true);
     }
-
     public void PreviousCharacter()
     {
         _characters[_selectedCharacterIndex].gameObject.SetActive(false);
@@ -41,20 +40,11 @@ public class CharacterSelect : MonoBehaviour
         _characters[_selectedCharacterIndex].gameObject.SetActive(true);
     }
 
-
-    public void SetPlayer1()
+    internal void SetPlayerIndex(int playerIndex)
     {
-        //PlayerPrefs.SetInt("Player1.SelectedCharacter", selectedCharacter);
-        ES3.Save("Player1.SelectedCharacter", _selectedCharacterIndex);
-        // LOAD SCENE
-
-    }
-    public void SetPlayer2()
-    {
-        //PlayerPrefs.SetInt("Player2.SelectedCharacter", selectedCharacter);
-        ES3.Save("Player2.SelectedCharacter", _selectedCharacterIndex);
-        // LOAD SCENE
-
+        _playerIndex = playerIndex;
+        _playerNum.SetText("Player " + (playerIndex + 1).ToString());
+        ignoreInputTime = Time.time + ignoreInputTime;
     }
 
     void Update()
@@ -64,17 +54,14 @@ public class CharacterSelect : MonoBehaviour
             inputEnabled = true;
         }
     }
-    public void SetPlayerIndex(int playerindex)
-    {
-        _playerIndex = playerindex;
-        ignoreInputTime = Time.time + ignoreInputTime;
-    }
 
-    public void SetPlayerCharacterIndex(int index)
+    public void SetPlayerCharacterIndex()
     {
         if (!inputEnabled) { return; }
 
-        PlayerConfigurationManager.Instance.SetPlayerCharacterIndex(_playerIndex, index);
+        PlayerConfigurationManager.Instance.SetPlayerCharacterIndex(_playerIndex, _selectedCharacterIndex);
+
+        ES3.Save($"Player{_playerIndex + 1}.SelectedCharacter", _selectedCharacterIndex);
     }
 
     public void SetPlayerReady()
@@ -84,10 +71,4 @@ public class CharacterSelect : MonoBehaviour
         PlayerConfigurationManager.Instance.ReadyPlayer(_playerIndex);
     }
 
-    public void SetPlayerNameColor(Color color)
-    {
-        if (!inputEnabled) { return; }
-
-        PlayerConfigurationManager.Instance.SetPlayerNameColor(_playerIndex, color);
-    }
 }

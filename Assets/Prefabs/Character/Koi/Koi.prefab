@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 158763902745131847}
   - component: {fileID: 5713541852044212220}
   - component: {fileID: 5713541850647595265}
+  - component: {fileID: 2103488582}
   m_Layer: 11
   m_Name: Koi
   m_TagString: Player
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerName: {fileID: 5713541851166459055}
   _skillText: {fileID: 5713541851160890207}
+--- !u!114 &2103488582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158763902745131842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e67a3cc2e2f8c7e44a4c13655bed9916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &7394133412428583944
 CapsuleCollider:
   m_ObjectHideFlags: 0

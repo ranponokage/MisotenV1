@@ -1,17 +1,32 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
 {
+    [SerializeField] private GameModeSO _gameModeSO;
     private List<PlayerConfiguration> _playerConfigs;
+    private PlayerInputManager _playerInputManager;
 
-    [SerializeField] private int _maxPlayers = 2;
+    [SerializeField] public int _maxPlayers = 2;
 
     private void Awake()
     {
         _playerConfigs = new List<PlayerConfiguration>();
+
+        switch (_gameModeSO.gameMode)
+        {
+            case GameMode.OnePlayer:
+                _maxPlayers = 1;
+                break;
+            case GameMode.TwoPlayer:
+                _maxPlayers = 2;
+                break;
+            default:
+                break;
+        }    
     }
 
     public void SetPlayerCharacterIndex(int index, int charactertIndex)
@@ -19,10 +34,7 @@ public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
         _playerConfigs[index].CharactertIndex = charactertIndex;
     }
 
-    public void SetPlayerNameColor(int index, Color color)
-    {
-        _playerConfigs[index].PlayerNameColor = color;
-    }
+
     public void ReadyPlayer(int index)
     {
         _playerConfigs[index].IsReady = true;
@@ -30,6 +42,10 @@ public class PlayerConfigurationManager : Singleton<PlayerConfigurationManager>
         {
             //Start Game
         }
+    }
+    public List<PlayerConfiguration> GetPlayerConfigs()
+    {
+        return _playerConfigs;
     }
 
     public void HandlePlayerJoin(PlayerInput playerInput)
@@ -53,6 +69,5 @@ public class PlayerConfiguration
     public PlayerInput Input { get; set; }
     public int PlayerIndex {get; set;}
     public bool IsReady { get; set; }
-    public Color PlayerNameColor { get; set; }
     public int CharactertIndex { get; set; }
 }
