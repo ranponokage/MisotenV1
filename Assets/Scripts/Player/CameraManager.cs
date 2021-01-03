@@ -1,46 +1,20 @@
 ﻿using Cinemachine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-   [SerializeField] GameModeSO _gameModeSO;
-    private int PlayerIndex;
+    public int PlayerIndex;
     public Camera PlayerCamera;
     public CinemachineFreeLook FreeLookVCam;
     private bool _isRMBPressed;
-
 
     [SerializeField, Range(1f, 5f)]
     private float speed = 2f;
 
     private void Awake()
     {
-        SetupCameraRect();
-    }
-
-    private void SetupCameraRect()
-    {
-        switch (_gameModeSO.gameMode)
-        {
-            case GameMode.OnePlayer:
-                PlayerCamera.rect = new Rect(0, 0, 1, 1);
-                break;
-            case GameMode.TwoPlayer:
-                if (PlayerIndex == 0)
-                {
-                    PlayerCamera.rect = new Rect(0, 0.5f, 1.0f, 0.5f);
-                }
-                if (PlayerIndex == 1)
-                {
-                    PlayerCamera.rect = new Rect(0, 0f, 1.0f, 0.5f);
-                }
-                break;
-            default:
-                break;
-        }
     }
 
     public int GetPlayerIndex() { return PlayerIndex; }
@@ -70,12 +44,6 @@ public class CameraManager : MonoBehaviour
         // or the last frame's input will 'stick' until the action is invoked again
         FreeLookVCam.m_XAxis.m_InputAxisValue = 0;
         FreeLookVCam.m_YAxis.m_InputAxisValue = 0;
-    }
-
-    public void SetPlayerIndex(int playerIndex)
-    {
-        PlayerIndex = playerIndex;
-        //SetupCameraRect();
     }
 
     public void OnCameraMove(Vector2 cameraMovement, bool isDeviceMouse)

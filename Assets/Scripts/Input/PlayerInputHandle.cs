@@ -42,7 +42,7 @@ public class PlayerInputHandle: MonoBehaviour
         //_playerInput = GetComponent<PlayerInput>();
         //var index = _playerInput.playerIndex;
 
-        var players = GetComponent<Player>();
+        var players = FindObjectsOfType<Player>();
         //_player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
 
         var miniMaps = FindObjectsOfType<bl_MiniMap>();

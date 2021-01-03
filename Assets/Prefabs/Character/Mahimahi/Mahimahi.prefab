@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3504743467653531698}
   - component: {fileID: 9069624552274199689}
   - component: {fileID: 9069624553024961140}
-  - component: {fileID: 2445261325117070233}
   m_Layer: 11
   m_Name: Mahimahi
   m_TagString: Player
@@ -99,18 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerName: {fileID: 9069624551394113498}
   _skillText: {fileID: 9069624553539303466}
---- !u!114 &2445261325117070233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3504743467653531703}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e67a3cc2e2f8c7e44a4c13655bed9916, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9069624551394113492
 GameObject:
   m_ObjectHideFlags: 0
