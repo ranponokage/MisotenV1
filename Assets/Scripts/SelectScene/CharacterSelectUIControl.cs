@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Michsky.LSS;
 
 public class CharacterSelectUIControl : MonoBehaviour
 {
     [SerializeField] GameModeSO _gameModeSO;
+
+    [SerializeField] private LoadingScreenManager _loadingScreenManager;
 
     [SerializeField] Button P1Submit;
     [SerializeField] Button P1Previous;
@@ -48,12 +51,14 @@ public class CharacterSelectUIControl : MonoBehaviour
                 if (P1Submit_IsPressed)
                 {
                     //load Level1
+                    _loadingScreenManager.LoadScene("Level1");
                 }
                 break;
             case GameMode.TwoPlayer:
                 if (P1Submit_IsPressed && P2Submit_IsPressed)
                 {
                     //load Level1
+                    _loadingScreenManager.LoadScene("Level1");
                 }
                 break;
             default:
