@@ -7,20 +7,8 @@ public class CharacterSelect : MonoBehaviour
 {
     [SerializeField] GameObject[] _characters;
     [SerializeField] int _selectedCharacterIndex = 0;
-    //[SerializeField] Button _next;
-    //[SerializeField] Button _previous;
-    //[SerializeField] Button _submit;
 
-    private int _playerIndex;
-    private float ignoreInputTime = 1.5f;
-    private bool inputEnabled;
 
-    private void Start()
-    {
-        //_next.onClick.AddListener(NextCharacter);
-        //_previous.onClick.AddListener(PreviousCharacter);
-        //_submit.onClick.AddListener(SetPlayerReady);
-    }
 
     public void NextCharacter()
     {
@@ -56,19 +44,4 @@ public class CharacterSelect : MonoBehaviour
         // LOAD SCENE
 
     }
-
-    void Update()
-    {
-        if (Time.time > ignoreInputTime)
-        {
-            inputEnabled = true;
-        }
-    }
-    public void SetPlayerIndex(int playerindex)
-    {
-        _playerIndex = playerindex;
-        ignoreInputTime = Time.time + ignoreInputTime;
-    }
-
-
 }

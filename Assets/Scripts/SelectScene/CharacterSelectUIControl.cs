@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CharacterSelectUIControl : MonoBehaviour
 {
+    [SerializeField] GameModeSO _gameModeSO;
+
     [SerializeField] Button P1Submit;
     [SerializeField] Button P1Previous;
     [SerializeField] Button P1Next;
@@ -13,7 +15,6 @@ public class CharacterSelectUIControl : MonoBehaviour
     [SerializeField] Button P2Previous;
     [SerializeField] Button P2Next;
 
-    [SerializeField] GameModeSO _gameModeSO;
 
     private StartGame startGame;
     private bool P1Submit_IsPressed;
