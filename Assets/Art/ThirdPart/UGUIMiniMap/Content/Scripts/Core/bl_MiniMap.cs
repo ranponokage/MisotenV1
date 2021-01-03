@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using System.Collections;
 using UGUIMiniMap;
 using System;
+using Rewired;
 
 public class bl_MiniMap : MonoBehaviour
 {
+    private Player _player;
+
     [Separator("General Settings")]
     // Target for the minimap.
     public int PlayerIndex = 0;
@@ -160,6 +163,7 @@ public class bl_MiniMap : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        _player = ReInput.players.GetPlayer(PlayerIndex);
         GetMiniMapSize();
         MiniMapCamera = MMCamera;
         DefaultRotationMode = DynamicRotation;
@@ -191,22 +195,7 @@ public class bl_MiniMap : MonoBehaviour
         return PlayerIndex;
     }
 
-    public void OnMapZoomOut()
-    {
-        ChangeHeight(false);
-    }
 
-    public void OnMapZoomIn()
-    {
-
-        ChangeHeight(true);
-    }
-
-    public void OnMapToggle()
-    {
-
-        ToggleSize();
-    }
 
     /// <summary>
     /// 
@@ -316,7 +305,7 @@ public class bl_MiniMap : MonoBehaviour
         //Controlled inputs key for minimap
         if (!isMobile) 
         { 
-            //Inputs(); 
+            Inputs(); 
         }
         //controlled that minimap follow the target
         PositionControll();
@@ -473,22 +462,22 @@ public class bl_MiniMap : MonoBehaviour
     /// <summary>
     /// 
     /// </summary>
-    //void Inputs()
-    //{
-    //    // If the minimap button is pressed then toggle the map state.
-    //    if (Input.GetKeyDown(ToogleKey))
-    //    {
-    //        ToggleSize();
-    //    }
-    //    if (Input.GetKeyDown(DecreaseHeightKey) && DefaultHeight < MaxZoom)
-    //    {
-    //        ChangeHeight(true);
-    //    }
-    //    if (Input.GetKeyDown(IncreaseHeightKey) && DefaultHeight > MinZoom)
-    //    {
-    //        ChangeHeight(false);
-    //    }
-    //}
+    void Inputs()
+    {
+        // If the minimap button is pressed then toggle the map state.
+        if (_player.GetButtonDown("MapToggle"))
+        {
+            ToggleSize();
+        }
+        if (_player.GetButtonDown("MapZoomOut") && DefaultHeight < MaxZoom)
+        {
+            ChangeHeight(true);
+        }
+        if (_player.GetButtonDown("MapZoomIn") && DefaultHeight > MinZoom)
+        {
+            ChangeHeight(false);
+        }
+    }
 
     /// <summary>
     /// Map FullScreen or MiniMap

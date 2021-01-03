@@ -13,7 +13,7 @@ public class WorldSpaceUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var index = GetComponent<Player>().GetPlayerIndex();
+        var index = GetComponent<PlayerControl>().GetPlayerIndex();
 
         _playerName.SetText("Player " + (index + 1));
 

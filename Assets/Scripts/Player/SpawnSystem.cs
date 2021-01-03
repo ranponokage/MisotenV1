@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnSystem : Singleton<SpawnSystem>
+public class SpawnSystem : MonoBehaviour
 {
     [SerializeField] PlayerCharacterGroup _playerCharacterGroup;
     [SerializeField] CameraManager[] _cameraManager;
@@ -94,30 +94,30 @@ public class SpawnSystem : Singleton<SpawnSystem>
         _minimap[0].SetActive(true);
         _minimap[1].SetActive(true);
     }
-    private void SetupPlayerUICamera(Player playerInstance, CameraManager cameraManager)
+    private void SetupPlayerUICamera(PlayerControl playerInstance, CameraManager cameraManager)
     {
         var uibillboard = playerInstance.GetComponentInChildren<UIBillboard>();
         uibillboard.gameplayCameraTransform = cameraManager.PlayerCamera.transform;
         //var canvasControl = playerInstance.GetComponentInChildren<PlayerCameraScreenUIControl>();
         //canvasControl.UICamera = cameraManager.PlayerCamera;
     }
-    private void SetupMainCameras(Player playerInstance, CameraManager cameraManager)
+    private void SetupMainCameras(PlayerControl playerInstance, CameraManager cameraManager)
     {
         playerInstance.GameplayCamera = cameraManager.PlayerCamera;
         cameraManager.SetupPlayerVirtualCamera(playerInstance.transform);
         playerInstance.FreeLookVCam = cameraManager.FreeLookVCam;
     }
-    private void SetupMinimap(Player playerInstance, int playerIndex)
+    private void SetupMinimap(PlayerControl playerInstance, int playerIndex)
     {
         _minimap[playerIndex].GetComponentInChildren<bl_MiniMap>().PlayerIndex = playerIndex;
         _minimap[playerIndex].GetComponentInChildren<bl_MiniMap>().Target = playerInstance.transform;
     }
-    private Player InstantiatePlayer(Player playerPrefab, Transform spawnLocation)
+    private PlayerControl InstantiatePlayer(PlayerControl playerPrefab, Transform spawnLocation)
     {
         if (playerPrefab == null)
             throw new Exception("Player Prefab can't be null.");
 
-        Player playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
+        PlayerControl playerInstance = Instantiate(playerPrefab, spawnLocation.position, spawnLocation.rotation);
 
         return playerInstance;
     }

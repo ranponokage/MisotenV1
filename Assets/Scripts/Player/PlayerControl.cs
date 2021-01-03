@@ -2,9 +2,12 @@
 using System;
 using UnityEngine;
 using Wyt.CharacterStats;
+using Rewired;
 
-public class Player : MonoBehaviour
+public class PlayerControl : MonoBehaviour
 {
+
+    private Player _player;
 
     [SerializeField] public int PlayerIndex = 0;
     [SerializeField] public CharacterStat Statmina; // Accelerator
@@ -22,7 +25,6 @@ public class Player : MonoBehaviour
 
     private Vector2 _rawInput;
 
-
     private Rigidbody _rigidBody;
     private Animator _animator;
     private Vector3 lastDirection;
@@ -39,7 +41,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        _rigidBody = GetComponent<Rigidbody>();
+        _player = ReInput.players.GetPlayer(PlayerIndex);
+       _rigidBody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
         _defaultFOV = FreeLookVCam.m_Lens.FieldOfView;
         ResetFOV();
@@ -55,10 +58,20 @@ public class Player : MonoBehaviour
 
     private void UpdateMoveMent()
     {
+        SetRawInput();
         float speed = CalculateFinalSpeed();
         Vector3 direction = Rotating();
         //_rigidBody.AddForce(direction * speed  * 100,ForceMode.Acceleration);
         _rigidBody.MovePosition(transform.position + direction * speed * Time.deltaTime);
+
+        if(_player.GetButton("Accelerate"))
+        {
+            Accelerate();
+        }
+        else
+        {
+            DeAccelerate();
+        }
     }
 
     private Vector3 Rotating()
@@ -107,14 +120,16 @@ public class Player : MonoBehaviour
         // Return the current fly direction.
         return targetDirection;
     }
-    public void  SetRawInput(Vector2 rawInput)
+    private void  SetRawInput()
     {
-        _rawInput = rawInput;
+        _rawInput.x = _player.GetAxis("Move X");
+        _rawInput.y = _player.GetAxis("Move Y");
+
     }
 
     public void IsUsingSkill()
     {
-        _animator.SetBool("IsUsingSkill", IsUsingSkillPressed);
+        _animator.SetBool("IsUsingSkill", IsUsingSkillPressed);//eat animation
 
         //AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
         //if (info.normalizedTime >= 1.0f)
@@ -122,14 +137,14 @@ public class Player : MonoBehaviour
         //    _animator.SetBool("IsUsingSkill", false);
         //}
     }
-    public void Accelerate()
+    private void Accelerate()
     {
         Debug.Log("Accelerate");
         SetFOV();
         AccelerateFactor = 10;
         _animator.SetBool("IsAccelerate", true);
     }
-    public void DeAccelerate()
+    private void DeAccelerate()
     {
         Debug.Log("DeAccelerate");
         ResetFOV();

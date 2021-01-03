@@ -25,15 +25,15 @@ public class CameraManager : MonoBehaviour
     private void Update()
     {
         //GetLookInput();
-        //if(_rPlayer.GetButton("MouseControlCamera"))
-        //{
-        //    EnableMouseControlCamera();
-        //}
-        //else
-        //{
-        //    DisableMouseControlCamera();
+        if (_rPlayer.GetButton("MouseControlCamera"))
+        {
+            EnableMouseControlCamera();
+        }
+        else
+        {
+            DisableMouseControlCamera();
 
-        //}
+        }
         // OnCameraMove(_lookVector);
     }
 

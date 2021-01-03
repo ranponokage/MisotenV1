@@ -6,9 +6,9 @@ public class PlayerCharacterGroup : MonoBehaviour
 {
     [SerializeField] private int _playerIndex = -1;
 
-    [SerializeField] private Player[] _characterPrefabs;
+    [SerializeField] private PlayerControl[] _characterPrefabs;
     
-    public Player GetCharacter(int index)
+    public PlayerControl GetCharacter(int index)
     {
         if (index < _characterPrefabs.Length)
         {
