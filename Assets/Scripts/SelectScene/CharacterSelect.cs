@@ -70,24 +70,5 @@ public class CharacterSelect : MonoBehaviour
         ignoreInputTime = Time.time + ignoreInputTime;
     }
 
-    public void SetPlayerCharacterIndex(int index)
-    {
-        if (!inputEnabled) { return; }
 
-        PlayerConfigurationManager.Instance.SetPlayerCharacterIndex(_playerIndex, index);
-    }
-
-    public void SetPlayerReady()
-    {
-        if (!inputEnabled) { return; }
-
-        PlayerConfigurationManager.Instance.ReadyPlayer(_playerIndex);
-    }
-
-    public void SetPlayerNameColor(Color color)
-    {
-        if (!inputEnabled) { return; }
-
-        PlayerConfigurationManager.Instance.SetPlayerNameColor(_playerIndex, color);
-    }
 }

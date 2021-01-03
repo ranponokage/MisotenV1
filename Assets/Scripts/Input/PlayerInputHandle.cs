@@ -6,8 +6,7 @@ using System.Linq;
 
 public class PlayerInputHandle: MonoBehaviour
 {
-    //private PlayerInput _playerInput;
-    private PlayerConfiguration _playerConfig;
+    private PlayerInput _playerInput;
     private Player _player;
     private bl_MiniMap _miniMap;
     private CameraManager _cameraManager;
@@ -39,27 +38,27 @@ public class PlayerInputHandle: MonoBehaviour
 
     private void Awake()
     {
-        //_playerInput = GetComponent<PlayerInput>();
-        //var index = _playerInput.playerIndex;
+        _playerInput = GetComponent<PlayerInput>();
+        var index = _playerInput.playerIndex;
 
         var players = FindObjectsOfType<Player>();
-        //_player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
+        _player = players.FirstOrDefault(p => p.GetPlayerIndex() == index);
 
         var miniMaps = FindObjectsOfType<bl_MiniMap>();
-        //_miniMap = miniMaps.FirstOrDefault(m => m.GetPlayerIndex() == index);
+        _miniMap = miniMaps.FirstOrDefault(m => m.GetPlayerIndex() == index);
 
         var cameraManagers = FindObjectsOfType<CameraManager>();
-        //_cameraManager = cameraManagers.FirstOrDefault(c => c.GetPlayerIndex() == index);
+        _cameraManager = cameraManagers.FirstOrDefault(c => c.GetPlayerIndex() == index);
 
         gameInput = new GameInput();
     }
 
-    public void InitializePlayer(PlayerConfiguration playerConfiguration)
-    {
-        _playerConfig = playerConfiguration;
+    //public void InitializePlayer(PlayerConfiguration playerConfiguration)
+    //{
+    //    _playerConfig = playerConfiguration;
 
-        _playerConfig.Input.onActionTriggered += Input_onActionTriggered;
-    }
+    //    _playerConfig.Input.onActionTriggered += Input_onActionTriggered;
+    //}
 
     private void Input_onActionTriggered(InputAction.CallbackContext obj)
     {
