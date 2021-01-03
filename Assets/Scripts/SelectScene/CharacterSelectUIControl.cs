@@ -15,13 +15,11 @@ public class CharacterSelectUIControl : MonoBehaviour
     [SerializeField] Button P2Previous;
     [SerializeField] Button P2Next;
 
-
-    private StartGame startGame;
     private bool P1Submit_IsPressed;
     private bool P2Submit_IsPressed;
     private void Awake()
     {
-        startGame = GetComponent<StartGame>();
+       
     }
 
     private void Update()
@@ -49,13 +47,13 @@ public class CharacterSelectUIControl : MonoBehaviour
             case GameMode.OnePlayer:
                 if (P1Submit_IsPressed)
                 {
-                    startGame.OnPlayButtonPress();
+                    //load Level1
                 }
                 break;
             case GameMode.TwoPlayer:
                 if (P1Submit_IsPressed && P2Submit_IsPressed)
                 {
-                    startGame.OnPlayButtonPress();
+                    //load Level1
                 }
                 break;
             default:
