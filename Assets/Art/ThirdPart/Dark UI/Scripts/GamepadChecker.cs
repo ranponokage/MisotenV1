@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 namespace Michsky.UI.Dark
 {
     public class GamepadChecker : MonoBehaviour
@@ -60,6 +61,8 @@ namespace Michsky.UI.Dark
         void Update()
         {
             string[] names = Input.GetJoystickNames();
+
+         
 
             for (int x = 0; x < names.Length; x++)
             {

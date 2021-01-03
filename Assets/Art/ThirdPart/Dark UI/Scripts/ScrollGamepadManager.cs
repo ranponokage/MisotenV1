@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Rewired;
 
 namespace Michsky.UI.Dark
 {
@@ -11,11 +12,21 @@ namespace Michsky.UI.Dark
 
         [Header("INPUT")]
         public string inputAxis = "Xbox Right Stick Vertical";
+        //public string inputAxis = "UIY";
         public bool invertAxis = false;
+
+        private Player _player;
+
+        private void Awake()
+        {
+            //_player = ReInput.players.GetPlayer(0);
+        }
 
         void Update()
         {
             float h = Input.GetAxis(inputAxis);
+
+            //float h = _player.GetAxis(inputAxis);
 
             if (invertAxis == false)
             {
