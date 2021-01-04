@@ -138,7 +138,7 @@ Material:
     - _UnderwaterScatteringPower: 1.5
     - _UsesWaterVolume: 1
     - _WaterIOR: 1.333
-    - _WaterSurfaceYPos: 90
+    - _WaterSurfaceYPos: -2
     - _WorldSpaceMappingEnabled: 1
     - _ZTest: 4
     - _ZWrite: 1
@@ -174,3 +174,4 @@ Material:
     - _TranslucencyColor: {r: 0.36725235, g: 0.614, b: 0.56522435, a: 1}
     - _UnderWaterReflCol: {r: 0.6251192, g: 0.75248003, b: 0.79454404, a: 1}
     - _UpperColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
