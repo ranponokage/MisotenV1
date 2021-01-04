@@ -34,9 +34,14 @@ public class PlayerControl : MonoBehaviour
 
     [HideInInspector] public Camera GameplayCamera;
     [HideInInspector] public CinemachineFreeLook FreeLookVCam;
-    [HideInInspector] public bool IsUsingSkillPressed;
-    [HideInInspector] public bool IsExtraActionPressed;
-    [HideInInspector] public bool IsInteractionPressed;
+    private bool IsUsingSkillPressed;
+    private bool IsExtraActionPressed;
+    private bool IsInteractionPressed;
+
+    [SerializeField] private bool _invertAxis;
+    [SerializeField] private float _invertDuration;
+    private float _invertOverTime;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -58,7 +63,14 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateMoveMent()
     {
-        SetRawInput();
+        if (!_invertAxis)
+        {
+            SetRawInput();
+        }
+        else
+        {
+            InVertAxis();
+        }
         float speed = CalculateFinalSpeed();
         Vector3 direction = Rotating();
         //_rigidBody.AddForce(direction * speed  * 100,ForceMode.Acceleration);
@@ -177,6 +189,19 @@ public class PlayerControl : MonoBehaviour
         {
             var finalSpeed = (Hunger.Value * 0.01f) + (AccelerateFactor * 0.1f) + defaultSpeed;
             return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
+        }
+    }
+
+    private void InVertAxis()
+    {
+        _invertOverTime += Time.deltaTime;
+        _rawInput.x = -_player.GetAxis("Move X");
+        _rawInput.y = -_player.GetAxis("Move Y");
+
+        if(_invertOverTime >= _invertDuration)
+        {
+            _invertAxis = false;
+            _invertOverTime = 0;
         }
     }
 }

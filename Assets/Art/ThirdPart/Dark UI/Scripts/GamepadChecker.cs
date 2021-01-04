@@ -67,7 +67,7 @@ namespace Michsky.UI.Dark
         {
             string[] names = Input.GetJoystickNames();
 
-         
+          
 
             for (int x = 0; x < names.Length; x++)
             {

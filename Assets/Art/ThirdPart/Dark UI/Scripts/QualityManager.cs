@@ -30,7 +30,7 @@ namespace Michsky.UI.Dark
         void Start()
         {
             mixer.SetFloat("Master", Mathf.Log10(PlayerPrefs.GetFloat(masterSlider.sliderTag + "DarkSliderValue")) * 20);
-            mixer.SetFloat("Music", Mathf.Log10(PlayerPrefs.GetFloat(musicSlider.sliderTag + "DarkSliderValue")) * 20);
+            mixer.SetFloat("BGM", Mathf.Log10(PlayerPrefs.GetFloat(musicSlider.sliderTag + "DarkSliderValue")) * 20);
             mixer.SetFloat("SFX", Mathf.Log10(PlayerPrefs.GetFloat(sfxSlider.sliderTag + "DarkSliderValue")) * 20);
 
             if (isMobile == false)
@@ -162,7 +162,7 @@ new Resolution { width = resolution.width, height = resolution.height }).Distinc
 
         public void VolumeSetMusic(float volume)
         {
-            mixer.SetFloat("Music", Mathf.Log10(volume) * 20);
+            mixer.SetFloat("BGM", Mathf.Log10(volume) * 20);
         }
 
         public void VolumeSetSFX(float volume)
