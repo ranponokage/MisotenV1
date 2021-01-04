@@ -103,8 +103,8 @@ namespace Michsky.UI.Dark
 
         public override void Process()
         {
-            Vector2 screenPos = Camera.main.WorldToScreenPoint(cursorObj.transform.position);
-
+            //Vector2 screenPos = Camera.main.WorldToScreenPoint(cursorObj.transform.position);
+            Vector2 screenPos = cursorObj.transform.position;
             pointer.position = screenPos;
             eventSystem.RaycastAll(pointer, this.m_RaycastResultCache);
             RaycastResult raycastResult = FindFirstRaycast(this.m_RaycastResultCache);
