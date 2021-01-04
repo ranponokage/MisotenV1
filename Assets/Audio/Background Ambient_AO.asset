@@ -58,6 +58,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  mixerGroup: {fileID: 0}
+  mixerGroup: {fileID: 243318579703096844, guid: afd35b94d3bbbd243b04402c431e6e25,
+    type: 2}
   spatialize: 0
-  isBGM: 0
+  isBGM: 1

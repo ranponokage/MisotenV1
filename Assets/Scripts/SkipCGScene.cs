@@ -16,7 +16,7 @@ public class SkipCGScene : MonoBehaviour
 
     private void Update()
     {
-        if(_player.GetAnyButton())
+        if(_player.GetButton("Skip"))
         {
             _lsm.LoadScene("PlayerSelect");
         }

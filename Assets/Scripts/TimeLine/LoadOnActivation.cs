@@ -9,7 +9,6 @@ public class LoadOnActivation : MonoBehaviour
     void OnEnable()
     {
         // Only specifying the sceneName or sceneBuildIndex will load the Scene with the Single mode
-
         _lsm.LoadScene("PlayerSelect");
 
     }
