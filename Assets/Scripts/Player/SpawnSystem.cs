@@ -110,7 +110,7 @@ public class SpawnSystem : MonoBehaviour
     private void SetupMinimap(PlayerControl playerInstance, int playerIndex)
     {
         _minimap[playerIndex].GetComponentInChildren<bl_MiniMap>().PlayerIndex = playerIndex;
-        _minimap[playerIndex].GetComponentInChildren<bl_MiniMap>().Target = playerInstance.transform;
+        _minimap[playerIndex].GetComponentInChildren<bl_MiniMap>().SetTarget(playerInstance.gameObject);
     }
     private PlayerControl InstantiatePlayer(PlayerControl playerPrefab, Transform spawnLocation)
     {

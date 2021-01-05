@@ -18,11 +18,11 @@ TagManager:
   - Room
   - Door
   - MiniMap
-  - Player
+  - MiniMap_P2
   - P1Cam
   - P2Cam
   - Postprocessing
-  - 
+  - Player
   - 
   - 
   - 

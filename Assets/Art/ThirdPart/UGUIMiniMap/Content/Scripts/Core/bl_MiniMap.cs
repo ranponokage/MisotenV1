@@ -163,6 +163,11 @@ public class bl_MiniMap : MonoBehaviour
     /// </summary>
     void Awake()
     {
+        if(PlayerIndex == 1)
+        {
+            MiniMapLayer = 11;
+        }
+
         _player = ReInput.players.GetPlayer(PlayerIndex);
         GetMiniMapSize();
         MiniMapCamera = MMCamera;

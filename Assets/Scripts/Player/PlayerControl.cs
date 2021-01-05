@@ -3,20 +3,22 @@ using System;
 using UnityEngine;
 using Wyt.CharacterStats;
 using Rewired;
+using System.Collections;
+using LuxWater;
 
 public class PlayerControl : MonoBehaviour
 {
-
     private Player _player;
 
     [SerializeField] public int PlayerIndex = 0;
     [SerializeField] public CharacterStat Statmina; // Accelerator
+
     [SerializeField] public CharacterStat Hunger;
     [SerializeField] public CharacterStat Sam;
     [SerializeField] public CharacterStat Mass;
     [SerializeField] public CharacterStat TurnSmoothTime;
 
-    [SerializeField] private float defaultSpeed;
+    [SerializeField] public CharacterStat defaultSpeed;
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
     [SerializeField] public  float AccelerateFactor;
@@ -26,11 +28,11 @@ public class PlayerControl : MonoBehaviour
     private Vector2 _rawInput;
 
     private Rigidbody _rigidBody;
+
     private Animator _animator;
     private Vector3 lastDirection;
     private float _defaultFOV;
     private float _targetFOV;
-    private float _itemSpeedFactor = 0f;
 
     [HideInInspector] public Camera GameplayCamera;
     [HideInInspector] public CinemachineFreeLook FreeLookVCam;
@@ -39,10 +41,11 @@ public class PlayerControl : MonoBehaviour
     private bool IsInteractionPressed;
 
     [SerializeField] private bool _invertAxis;
-    [SerializeField] private float _invertDuration;
-    private float _invertOverTime;
 
+    private int _InvertFactor = 1;
 
+    [SerializeField] private UsableItemSO _usableItemSO;
+    
     // Start is called before the first frame update
     private void Start()
     {
@@ -63,14 +66,8 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateMoveMent()
     {
-        if (!_invertAxis)
-        {
-            SetRawInput();
-        }
-        else
-        {
-            InVertAxis();
-        }
+        SetRawInput();
+        
         float speed = CalculateFinalSpeed();
         Vector3 direction = Rotating();
         //_rigidBody.AddForce(direction * speed  * 100,ForceMode.Acceleration);
@@ -84,6 +81,17 @@ public class PlayerControl : MonoBehaviour
         {
             DeAccelerate();
         }
+
+        if (_player.GetButton("Accelerate"))
+        {
+            UsingItem();
+        }
+    }
+
+    private void UsingItem()
+    {
+        _usableItemSO.UseItem(this);
+        _usableItemSO.UpdatePlayerUI(this);
     }
 
     private Vector3 Rotating()
@@ -134,8 +142,8 @@ public class PlayerControl : MonoBehaviour
     }
     private void  SetRawInput()
     {
-        _rawInput.x = _player.GetAxis("Move X");
-        _rawInput.y = _player.GetAxis("Move Y");
+        _rawInput.x = _player.GetAxis("Move X") * _InvertFactor;
+        _rawInput.y = _player.GetAxis("Move Y") * _InvertFactor;
 
     }
 
@@ -187,21 +195,37 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            var finalSpeed = (Hunger.Value * 0.01f) + (AccelerateFactor * 0.1f) + defaultSpeed;
+            var finalSpeed = (Hunger.Value * 0.01f) + (AccelerateFactor * 0.1f) + defaultSpeed.Value;
             return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
         }
     }
 
-    private void InVertAxis()
+    public void InVertAxis(float duration)
     {
-        _invertOverTime += Time.deltaTime;
-        _rawInput.x = -_player.GetAxis("Move X");
-        _rawInput.y = -_player.GetAxis("Move Y");
+        _InvertFactor = -1;
+        StartCoroutine(InVertAxisTimer(duration));
+    }
 
-        if(_invertOverTime >= _invertDuration)
-        {
-            _invertAxis = false;
-            _invertOverTime = 0;
-        }
+    private IEnumerator InVertAxisTimer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        _InvertFactor = 1;
+    }
+
+    public void BlurCamera(float duration)
+    {
+        GameplayCamera.gameObject.GetComponent<LuxWater_UnderWaterBlur>().enabled = true;
+        StartCoroutine(BlurCameraTimer(duration));
+    }
+
+    private IEnumerator BlurCameraTimer(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        GameplayCamera.gameObject.GetComponent<LuxWater_UnderWaterBlur>().enabled = false;
+    }
+
+    public void PickedUp(UsableItemSO itemSO)
+    {
+        _usableItemSO = itemSO;
     }
 }
