@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: water ocean far
   m_Shader: {fileID: 4800000, guid: ab6f7521bd72644388f2fc1112e74e7b, type: 3}
-  m_ShaderKeywords: GEOM_TYPE_BRANCH GEOM_TYPE_LEAF LUX_WATER_REFLECTIVE _PIXELSNAP_NONE
-    _SNAPPING _WORLDSPACEMAPPINGENABLED_ON
+  m_ShaderKeywords: GEOM_TYPE_BRANCH GEOM_TYPE_LEAF LUX_WATER_REFLECTIVE USINGWATERVOLUME
+    _PIXELSNAP_NONE _SNAPPING _WORLDSPACEMAPPINGENABLED_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -170,3 +170,4 @@ Material:
     - _TranslucencyColor: {r: 0.36725235, g: 0.614, b: 0.56522435, a: 1}
     - _UnderWaterReflCol: {r: 0.6251192, g: 0.75248003, b: 0.79454404, a: 1}
     - _UpperColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

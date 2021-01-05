@@ -162,3 +162,4 @@ Material:
     - _TranslucencyColor: {r: 0.25142643, g: 0.417, b: 0.417, a: 1}
     - _UnderWaterReflCol: {r: 1, g: 1, b: 1, a: 0}
     - _UpperColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
