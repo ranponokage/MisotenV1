@@ -9,16 +9,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: SpeedUpSO
-  m_EditorClassIdentifier: Assembly-CSharp::EquippableItemSO
-  ItemName: SpeedUp
-  Icon: {fileID: 21300000, guid: 1b688bf203bcb454ba422c6395891f41, type: 3}
+  m_Script: {fileID: 11500000, guid: 5bad33448c56eb942b93224d2ffbfeea, type: 3}
+  m_Name: Usable_InvertAxis
+  m_EditorClassIdentifier: 
+  ItemName: InvertAxi
+  Icon: {fileID: 21300000, guid: c084db22e43bd61499f3d42d7946ba31, type: 3}
   Color: {r: 1, g: 0, b: 0, a: 1}
-  SpeedBonus: 3
+  SpeedBonus: 0
   HunggerBonus: 0
   SamBonus: 0
+  MassBonus: 0
+  SizeBonus: 0
   SpeedPercentBonus: 0
   HunggerPercentBonus: 0
   SamPercentBonus: 0
-  _EquipmentType: 0
+  Duration: -1
+  InvertAxis: 0
+  BlurCamera: 0

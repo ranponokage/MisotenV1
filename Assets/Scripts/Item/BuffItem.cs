@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BuffItem : MonoBehaviour
 {
-    [SerializeField] UsableItemSO _itemSO;
+    [SerializeField] UsableItemSO _BufferitemSO;
     // Use this for initialization
 
     private void OnTriggerEnter(Collider other)
@@ -13,8 +13,6 @@ public class BuffItem : MonoBehaviour
         if (player == null)
             return;
 
-        _itemSO.UseItem(player);
-
-        _itemSO.UpdatePlayerUI(player);
+        _BufferitemSO.UseItem(player);
     }
 }

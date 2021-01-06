@@ -3,8 +3,8 @@ using System.Collections;
 using UnityEngine;
 using Wyt.CharacterStats;
 
-[CreateAssetMenu(menuName = "Item/UsableItemSO",fileName = "UsableItemSO")]
-public class UsableItemSO : ItemSO
+[CreateAssetMenu(menuName = "Item/BuffItemSO", fileName = "BuffItemSO")]
+public class BuffItemSO : ItemSO
 {
     public int SpeedBonus;
     public int HunggerBonus;
@@ -27,24 +27,24 @@ public class UsableItemSO : ItemSO
 
     public void UseItem(PlayerControl player)
     {
-        if (SpeedBonus > 0)
+        if (SpeedBonus != 0)
         {
             player.Speed.AddModifier(new StatModifier(SpeedBonus, StatModType.Flat, this));
         }
-        if (HunggerBonus > 0)
+        if (HunggerBonus != 0)
         {
             player.Hunger.AddModifier(new StatModifier(HunggerBonus, StatModType.Flat, this));
         }
-        if (SamBonus > 0)
+        if (SamBonus != 0)
         {
             player.Sam.AddModifier(new StatModifier(SamBonus, StatModType.Flat, this));
         }
-        if (MassBonus > 0)
+        if (MassBonus != 0)
         {
             player.Mass.AddModifier(new StatModifier(MassBonus, StatModType.Flat, this));
             player._rigidBody.mass = player.Mass.Value;
         }
-        if (SizeBonus > 0)
+        if (SizeBonus != 0)
         {
             player.Size.AddModifier(new StatModifier(SizeBonus, StatModType.Flat, this));
             player.CharacterModel.transform.localScale *= player.Size.Value;
@@ -60,7 +60,7 @@ public class UsableItemSO : ItemSO
         if (!BlurCamera) return;
         else player.BlurCamera(Duration);
 
-        
+
     }
 
     private IEnumerator BufferTimer(float duration, PlayerControl playerStats)

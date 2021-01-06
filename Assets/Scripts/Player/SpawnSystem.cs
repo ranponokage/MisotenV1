@@ -12,6 +12,8 @@ public class SpawnSystem : MonoBehaviour
 
     [SerializeField] private GameModeSO gameModeSO;
 
+    [SerializeField] StatusPanel[] _statsPanels;
+
 
     private int[] _playerCharacterIndex;
     private int _numberOfPlayers;
@@ -79,8 +81,8 @@ public class SpawnSystem : MonoBehaviour
             SetupMinimap(playerInstance, i);
             SetupMainCameras(playerInstance, _cameraManager[i]);
             SetupPlayerUICamera(playerInstance, _cameraManager[i]);
-
-           // _playerInputManager.JoinPlayer(i);
+            //setup player StatsDisplayer
+            playerInstance._statusPanel = _statsPanels[i];
         }
     }
     private void SetupSinglePlayerMiniMap()

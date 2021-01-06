@@ -11,23 +11,29 @@ public class PlayerControl : MonoBehaviour
     private Player _player;
 
     [SerializeField] public int PlayerIndex = 0;
-    [SerializeField] public CharacterStat Statmina; // Accelerator
+
+    [SerializeField] public GameObject CharacterModel;
+
 
     [SerializeField] public CharacterStat Hunger;
+    [SerializeField] public CharacterStat Statmina; // Accelerator
     [SerializeField] public CharacterStat Sam;
     [SerializeField] public CharacterStat Mass;
+    [SerializeField] public CharacterStat Size;
     [SerializeField] public CharacterStat TurnSmoothTime;
+    [SerializeField] public CharacterStat Speed;
+    [SerializeField] public Rigidbody _rigidBody;
 
-    [SerializeField] public CharacterStat defaultSpeed;
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
-    [SerializeField] public  float AccelerateFactor;
+    [SerializeField] public  float AccelerateFactor = 1;
 
+    private StatModifier _accelerateModifile;
     [SerializeField] private float accelerateFOV = 100f;                       // the FOV to use on the camera when player is Accelerate.
 
-    private Vector2 _rawInput;
+    [HideInInspector] public StatusPanel _statusPanel;
 
-    private Rigidbody _rigidBody;
+    private Vector2 _rawInput;
 
     private Animator _animator;
     private Vector3 lastDirection;
@@ -45,18 +51,30 @@ public class PlayerControl : MonoBehaviour
     private int _InvertFactor = 1;
 
     [SerializeField] private UsableItemSO _usableItemSO;
-    
+
     // Start is called before the first frame update
     private void Start()
     {
+        _statusPanel.SetStats(Hunger, Statmina, Sam, Mass, Size, Speed);
+        _statusPanel.UpdateStatVlues();
+
         _player = ReInput.players.GetPlayer(PlayerIndex);
-       _rigidBody = GetComponent<Rigidbody>();
+        _rigidBody = GetComponent<Rigidbody>();
         _animator = GetComponentInChildren<Animator>();
         _defaultFOV = FreeLookVCam.m_Lens.FieldOfView;
         ResetFOV();
+
+        //_rigidBody.mass = Mass.Value;
+        //CharacterModel.transform.localScale *= Size.Value;
+
+        _accelerateModifile =  new StatModifier((AccelerateFactor), StatModType.Flat, this);
     }
 
-
+    void Update()
+    {
+        SetRawInput();
+        HandleButtonInput();
+    }
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -66,32 +84,30 @@ public class PlayerControl : MonoBehaviour
 
     private void UpdateMoveMent()
     {
-        SetRawInput();
-        
-        float speed = CalculateFinalSpeed();
         Vector3 direction = Rotating();
         //_rigidBody.AddForce(direction * speed  * 100,ForceMode.Acceleration);
-        _rigidBody.MovePosition(transform.position + direction * speed * Time.deltaTime);
-
-        if(_player.GetButton("Accelerate"))
-        {
-            Accelerate();
-        }
-        else
-        {
-            DeAccelerate();
-        }
-
-        if (_player.GetButton("Accelerate"))
-        {
-            UsingItem();
-        }
+        _rigidBody.MovePosition(transform.position + direction * Speed.Value * Time.deltaTime);
     }
 
-    private void UsingItem()
+    private void HandleButtonInput()
     {
-        _usableItemSO.UseItem(this);
-        _usableItemSO.UpdatePlayerUI(this);
+        if (_player.GetButtonDown("Accelerate"))
+        {
+            Accelerate();
+            _statusPanel.UpdateStatVlues();
+        }
+        else if (_player.GetButtonUp("Accelerate"))
+        {
+            DeAccelerate();
+            _statusPanel.UpdateStatVlues();
+        }
+
+        if (_usableItemSO != null && _player.GetButton("Item"))
+        {
+            UseItem();
+            _statusPanel.UpdateStatVlues();
+        }
+  
     }
 
     private Vector3 Rotating()
@@ -161,14 +177,15 @@ public class PlayerControl : MonoBehaviour
     {
         Debug.Log("Accelerate");
         SetFOV();
-        AccelerateFactor = 10;
+        Speed.AddModifier(_accelerateModifile);
         _animator.SetBool("IsAccelerate", true);
     }
     private void DeAccelerate()
     {
         Debug.Log("DeAccelerate");
         ResetFOV();
-        AccelerateFactor = 0;
+
+        Speed.RemoveModifier(_accelerateModifile);
         _animator.SetBool("IsAccelerate", false);
     }
     private void ResetFOV()
@@ -195,8 +212,11 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
-            var finalSpeed = (Hunger.Value * 0.01f) + (AccelerateFactor * 0.1f) + defaultSpeed.Value;
-            return finalSpeed > maxSpeed ? maxSpeed : finalSpeed;
+            Speed.AddModifier(new StatModifier((Hunger.Value * 0.01f), StatModType.Flat, this));
+            Speed.AddModifier(new StatModifier((AccelerateFactor * 0.1f), StatModType.Flat, this));
+
+            //var finalSpeed = (Hunger.Value * 0.01f) + (AccelerateFactor * 0.1f) + Speed.Value;
+            return Speed.Value > maxSpeed ? maxSpeed : Speed.Value;
         }
     }
 
@@ -227,5 +247,26 @@ public class PlayerControl : MonoBehaviour
     public void PickedUp(UsableItemSO itemSO)
     {
         _usableItemSO = itemSO;
+        AddUsableItemUI();
+    }
+    private void UseItem()
+    {
+        _usableItemSO.UseItem(this);
+
+        RemoveItemUI(this);
+    }
+
+    public void AddUsableItemUI()
+    {
+       
+    }
+
+    private void RemoveItemUI(PlayerControl playerControl)
+    {
+
+    }
+    public void UpdateBufferItemUI(UsableItemSO buffItemSO)
+    {
+
     }
 }

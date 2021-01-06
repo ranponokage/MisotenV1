@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -460,26 +462,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerIndex: 0
-  Statmina:
-    BaseValue: 100
+  CharacterModel: {fileID: 5582799242406382136}
   Hunger:
+    BaseValue: 100
+  Statmina:
     BaseValue: 100
   Sam:
     BaseValue: 100
   Mass:
     BaseValue: 10
+  Size:
+    BaseValue: 1
   TurnSmoothTime:
     BaseValue: 0.06
-  defaultSpeed: 1
+  Speed:
+    BaseValue: 2
+  _rigidBody: {fileID: 103635882}
   minSpeed: 0.5
   maxSpeed: 5
-  AccelerateFactor: 10
+  AccelerateFactor: 1
   accelerateFOV: 100
+  _statusPanel: {fileID: 0}
   GameplayCamera: {fileID: 0}
   FreeLookVCam: {fileID: 0}
-  IsUsingSkillPressed: 0
-  IsExtraActionPressed: 0
-  IsInteractionPressed: 0
+  _invertAxis: 0
+  _usableItemSO: {fileID: 0}
 --- !u!54 &103635882
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -579,6 +586,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2864e3c02a0da8a46a60420cf349554a, type: 3}
+--- !u!1 &5582799242406382136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3582619965618337303, guid: 2864e3c02a0da8a46a60420cf349554a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8989769471880395823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5580522194275568554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3581466618908014469, guid: 2864e3c02a0da8a46a60420cf349554a,

@@ -7,5 +7,5 @@ public class ItemSO : ScriptableObject
 {
     public string ItemName;
     public Sprite Icon;
-    public Color Color;
+    public Color Color = new Color(0,0,0,1);
 }
